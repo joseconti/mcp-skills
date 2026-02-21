@@ -1,0 +1,77 @@
+{
+	"version": "1.0.0",
+	"source": "joseconti/mcp-skills",
+	"upstream": "WordPress/agent-skills",
+	"description": "WordPress coding guidelines for AI assistants connected via MCP. Fork of WordPress/agent-skills with custom additions.",
+	"skills": {
+		"wp-plugin-development": {
+			"context": "plugin",
+			"description": "Plugin architecture, hooks, security, Settings API, lifecycle, packaging."
+		},
+		"wp-block-development": {
+			"context": "block",
+			"description": "Gutenberg blocks: block.json, attributes, supports, dynamic rendering, deprecations."
+		},
+		"wp-block-themes": {
+			"context": "theme",
+			"description": "Block themes: theme.json, templates, template parts, patterns, style variations."
+		},
+		"wp-rest-api": {
+			"context": "rest-api",
+			"description": "REST API: custom endpoints, authentication, schema, permissions, controllers."
+		},
+		"wp-performance": {
+			"context": "performance",
+			"description": "Performance: caching, DB queries, autoload options, HTTP API, profiling."
+		},
+		"wp-wpcli-and-ops": {
+			"context": "wpcli",
+			"description": "WP-CLI: search-replace, DB ops, plugin/theme management, cron, automation."
+		},
+		"wp-phpstan": {
+			"context": "phpstan",
+			"description": "PHPStan: configuration, baselines, WordPress annotations, third-party stubs."
+		},
+		"wp-interactivity-api": {
+			"context": "interactivity",
+			"description": "Interactivity API: data-wp-* directives, store/state/actions, SSR."
+		},
+		"wp-playground": {
+			"context": "playground",
+			"description": "WordPress Playground: disposable instances, blueprints, CLI, debugging."
+		},
+		"wp-abilities-api": {
+			"context": "abilities",
+			"description": "Abilities API: wp_register_ability, categories, REST exposure, permissions."
+		},
+		"wpds": {
+			"context": "design",
+			"description": "WordPress Design System: components, tokens, patterns."
+		},
+		"wordpress-router": {
+			"context": "router",
+			"description": "Project classification and skill routing."
+		},
+		"wp-project-triage": {
+			"context": "triage",
+			"description": "Deterministic repo type detection and tooling recommendations."
+		}
+	},
+	"custom_skills": {
+		"woocommerce": {
+			"context": "woocommerce",
+			"description": "WooCommerce development patterns.",
+			"status": "planned"
+		},
+		"wordpress-security": {
+			"context": "security",
+			"description": "WordPress security best practices.",
+			"status": "planned"
+		},
+		"wordpress-general": {
+			"context": "general",
+			"description": "General WordPress coding guidelines.",
+			"status": "planned"
+		}
+	}
+}
