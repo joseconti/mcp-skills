@@ -60,8 +60,9 @@
 	"custom_skills": {
 		"woocommerce": {
 			"context": "woocommerce",
-			"description": "WooCommerce development patterns.",
-			"status": "planned"
+			"description": "WooCommerce extensions: HPOS-compatible APIs, hooks, payment gateways, shipping methods, emails, REST API, security.",
+			"status": "active",
+			"path": "custom/woocommerce"
 		},
 		"wordpress-security": {
 			"context": "security",
