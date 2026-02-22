@@ -6,7 +6,7 @@ WordPress coding guidelines served to AI assistants via MCP (Model Context Proto
 
 This repository is a controlled fork of [WordPress/agent-skills](https://github.com/WordPress/agent-skills) — the official WordPress repository containing expert-level coding knowledge for AI assistants.
 
-It is consumed by the [MCP Content Manager for WordPress](https://plugins.joseconti.com/) plugin through the `mcm/coding-guidelines` ability, which fetches these guidelines and delivers them to any AI assistant connected via MCP.
+It is consumed by the [MCP Content Manager for WP Premium](https://plugins.joseconti.com/en/product/mcp-content-manager-for-wordpress/) plugin through the `mcm/coding-guidelines` ability, which fetches these guidelines and delivers them to any AI assistant connected via MCP.
 
 ## How it works
 
