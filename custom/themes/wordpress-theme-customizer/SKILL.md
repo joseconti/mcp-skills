@@ -190,7 +190,7 @@ mcm/check-wpcli {}
 ```
 
 - **If WP-CLI is available:** Use WP-CLI commands via `mcm/execute-wpcli` — faster and more structured.
-- **If WP-CLI is NOT available:** Fall back to `mcm/list-files` and `mcm/read-file` MCP abilities.
+- **If WP-CLI is NOT available:** Fall back to `mcm/list-directory` and `mcm/read-file` MCP abilities.
 
 ### Confirmation before proceeding
 
@@ -217,12 +217,12 @@ mcm/execute-wpcli {"command": "eval '$dir = get_template_directory(); echo shell
 
 ```json
 // List theme directory structure
-mcm/list-files {"path": "wp-content/themes/<active-theme-slug>/", "recursive": true}
+mcm/list-directory {"path": "themes/<active-theme-slug>", "recursive": true}
 
 // Read key files
-mcm/read-file {"path": "wp-content/themes/<active-theme-slug>/functions.php"}
-mcm/read-file {"path": "wp-content/themes/<active-theme-slug>/theme.json"}
-mcm/read-file {"path": "wp-content/themes/<active-theme-slug>/style.css"}
+mcm/read-file {"path": "themes/<active-theme-slug>/functions.php"}
+mcm/read-file {"path": "themes/<active-theme-slug>/theme.json"}
+mcm/read-file {"path": "themes/<active-theme-slug>/style.css"}
 ```
 
 #### What to identify in Pass 1
