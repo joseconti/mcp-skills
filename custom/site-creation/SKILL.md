@@ -1,6 +1,6 @@
 ---
 name: wordpress-site-creator
-description: "Complete guide for creating a WordPress site from scratch using WP-CLI or the admin panel. Use when the user asks to create a new WordPress site, build a website from scratch, configure WordPress for the first time, or set up an online store with WooCommerce. NOT for maintenance, migration, or updates on existing sites."
+description: "Complete guide for creating a WordPress site from scratch using MCP Content Manager abilities. Use when the user asks to create a new WordPress site, build a website from scratch, configure WordPress for the first time, or set up an online store with WooCommerce. NOT for maintenance, migration, or updates on existing sites."
 ---
 
 # Creating a WordPress Site from Scratch

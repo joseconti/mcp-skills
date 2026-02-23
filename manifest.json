@@ -73,6 +73,36 @@
 			"context": "general",
 			"description": "General WordPress coding guidelines.",
 			"status": "planned"
+		},
+		"theme-avada": {
+			"context": "theme-config",
+			"description": "Avada theme configuration (ThemeFusion): colors, typography, header, footer, layout, blog, WooCommerce, responsive. Classic theme — options stored as fusion_options in wp_options.",
+			"status": "active",
+			"path": "custom/themes/avada"
+		},
+		"theme-dt-the7": {
+			"context": "theme-config",
+			"description": "The7 theme configuration (Dream-Theme): colors, typography, header, footer, layout, blog, portfolio, buttons, page titles, sidebar. Classic theme — options stored as the7mk2 in wp_options.",
+			"status": "active",
+			"path": "custom/themes/dt-the7"
+		},
+		"theme-twentytwentyfive": {
+			"context": "theme-config",
+			"description": "Twenty Twenty-Five theme configuration: colors, typography, layout, spacing, templates, block styles. All options and API procedures to save settings.",
+			"status": "active",
+			"path": "custom/themes/twentytwentyfive"
+		},
+		"theme-twentytwentyfour": {
+			"context": "theme-config",
+			"description": "Twenty Twenty-Four theme configuration: colors, typography, layout, spacing, duotones, gradients, templates, block styles. All options and API procedures to save settings.",
+			"status": "active",
+			"path": "custom/themes/twentytwentyfour"
+		},
+		"theme-twentytwentythree": {
+			"context": "theme-config",
+			"description": "Twenty Twenty-Three theme configuration: colors, typography, layout, spacing, style variations, templates, block styles. All options and API procedures to save settings.",
+			"status": "active",
+			"path": "custom/themes/twentytwentythree"
 		}
 	}
 }
