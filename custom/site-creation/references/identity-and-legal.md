@@ -2,13 +2,29 @@
 
 ## Phase 6 — Site Identity
 
-Configure in Appearance > Customize (or in theme settings):
+Configure the site identity using MCP abilities:
 
-- Site title
-- Tagline
-- Logo (provided by the user)
-- Favicon (provided by the user or generated from the logo)
-- Site colors according to the specified palette
+```json
+// Site title and tagline
+mcm/set-option {"name": "blogname", "value": "Site Name"}
+mcm/set-option {"name": "blogdescription", "value": "Site Tagline"}
+
+// Logo — first upload the image, then set the theme mod
+mcm/upload-media {"url": "https://example.com/logo.png", "title": "Site Logo"}
+// Use the returned attachment ID:
+mcm/set-theme-mod {"key": "custom_logo", "value": <attachment_id>}
+
+// Favicon — upload and set
+mcm/upload-media {"url": "https://example.com/favicon.png", "title": "Favicon"}
+mcm/set-option {"name": "site_icon", "value": <attachment_id>}
+
+// Static front page (if decided in Phase 2)
+mcm/set-option {"name": "show_on_front", "value": "page"}
+mcm/set-option {"name": "page_on_front", "value": <homepage_id>}
+mcm/set-option {"name": "page_for_posts", "value": <blog_page_id>}
+```
+
+If theme colors were not fully configured in Phase 3, do it now. Call `mcm/theme-config-guide` to see the available color options for the active theme, then apply the user's color palette using `mcm/set-global-styles` (block themes) or `mcm/set-theme-options` (classic themes).
 
 ---
 

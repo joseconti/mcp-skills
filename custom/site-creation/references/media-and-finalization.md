@@ -26,6 +26,9 @@ Ask if they want widgets in the sidebar and/or footer. Configure based on the si
 
 Configure footer areas with: contact information, legal menu, social media links (if applicable), copyright text.
 
+For **block themes**: use `mcm/update-content` to edit the footer template part, or `mcm/set-global-styles` for footer styling.
+For **classic themes**: use `mcm/set-theme-options` to configure footer options (widgets, columns, colors, copyright text). Call `mcm/theme-config-guide` to see the available footer options for the active theme.
+
 ### Social Media
 
 Ask if they have social media profiles. Configure the links in the theme or via widget/plugin. Verify that Open Graph is properly configured (via SEO plugin).
