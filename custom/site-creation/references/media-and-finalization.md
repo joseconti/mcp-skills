@@ -56,4 +56,11 @@ Before deactivating maintenance mode, review everything:
 - (If e-commerce) The purchase process works end to end
 - (If e-commerce) Transactional emails arrive correctly
 
+### Search Engine Indexing
+
+Before going live, ask the user: "Do you want search engines to index your site now?"
+
+- If **yes:** disable "Discourage search engines from indexing this site" in Settings > Reading. Verify that robots.txt does not block crawlers and that the XML sitemap is accessible.
+- If **not yet:** keep the option enabled. Remind the user they must disable it manually when they are ready for the site to appear in search results.
+
 When everything is approved by the user, **deactivate maintenance mode**. The site is live.
