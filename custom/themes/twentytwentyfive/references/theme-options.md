@@ -1,20 +1,36 @@
-# Twenty Twenty-Five — Configurable Options
+# Twenty Twenty-Five — Complete Configurable Options
 
 All values below are the **theme.json defaults**. User overrides are stored in Global Styles (`wp_global_styles` post type). Use `var:preset|{type}|{slug}` format to reference presets in styles.
 
 ---
 
-## Color Palette
+## Global Settings
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| `appearanceTools` | `true` | Enables all appearance editing tools |
+| `useRootPaddingAwareAlignments` | `true` | Full-width blocks honor root padding |
+| `typography.fluid` | `true` | Responsive fluid typography enabled |
+| `typography.writingMode` | `true` | RTL language support |
+| `color.defaultDuotone` | `false` | Only custom duotones (none in base) |
+| `color.defaultGradients` | `false` | Only custom gradients (none in base) |
+| `color.defaultPalette` | `false` | Only custom palette |
+| `spacing.defaultSpacingSizes` | `false` | Custom spacing scale |
+| `typography.defaultFontSizes` | `false` | Custom font sizes |
+
+---
+
+## Color Palette (8 colors)
 
 | Name | Slug | Default | CSS Variable |
 |------|------|---------|-------------|
 | Base | `base` | `#FFFFFF` | `--wp--preset--color--base` |
 | Contrast | `contrast` | `#111111` | `--wp--preset--color--contrast` |
-| Accent 1 | `accent-1` | `#FFEE58` | `--wp--preset--color--accent-1` |
-| Accent 2 | `accent-2` | `#F6CFF4` | `--wp--preset--color--accent-2` |
-| Accent 3 | `accent-3` | `#503AA8` | `--wp--preset--color--accent-3` |
-| Accent 4 | `accent-4` | `#686868` | `--wp--preset--color--accent-4` |
-| Accent 5 | `accent-5` | `#FBFAF3` | `--wp--preset--color--accent-5` |
+| Accent 1 | `accent-1` | `#FFEE58` (yellow) | `--wp--preset--color--accent-1` |
+| Accent 2 | `accent-2` | `#F6CFF4` (light pink) | `--wp--preset--color--accent-2` |
+| Accent 3 | `accent-3` | `#503AA8` (purple) | `--wp--preset--color--accent-3` |
+| Accent 4 | `accent-4` | `#686868` (gray) | `--wp--preset--color--accent-4` |
+| Accent 5 | `accent-5` | `#FBFAF3` (off-white) | `--wp--preset--color--accent-5` |
 | Accent 6 | `accent-6` | `color-mix(in srgb, currentColor 20%, transparent)` | `--wp--preset--color--accent-6` |
 
 **Default styles:** Background = `base`, Text = `contrast`
@@ -48,7 +64,7 @@ mcm/set-global-styles {
 
 ## Typography
 
-### Font Families
+### Font Families (base theme: 2)
 
 | Name | Slug | Font Stack | Weight Range |
 |------|------|-----------|-------------|
@@ -56,6 +72,18 @@ mcm/set-global-styles {
 | Fira Code | `fira-code` | `"Fira Code", monospace` | 300–700 (variable) |
 
 **Default body font:** `manrope`
+
+### Additional Fonts in Style Variations
+
+| Font | Slug | Used In | Type |
+|------|------|---------|------|
+| Beiruti | `beiruti` | Noon | Sans-serif, 200–900 |
+| Literata | `literata` | Noon, Morning, Sunrise, Midnight | Serif, 200–900 |
+| Vollkorn | `vollkorn` | Dusk | Serif, 400–900 |
+| Platypi | `platypi` | Afternoon, Sunrise | Sans-serif, 300–800 |
+| Ysabeau Office | `ysabeau-office` | Afternoon, Morning | Sans-serif, 100–900 |
+| Roboto Slab | `roboto-slab` | Twilight | Serif, 100–900 |
+| Fira Sans | `fira-sans` | Midnight | Sans-serif, 100–900 |
 
 ### Font Sizes
 
@@ -85,29 +113,14 @@ mcm/set-global-styles {
 | Line Height | 1.125 |
 | Letter Spacing | -0.1px |
 
-| Heading | Font Size |
-|---------|-----------|
-| H1 | `var:preset|font-size|xx-large` |
-| H2 | `var:preset|font-size|x-large` |
-| H3 | `var:preset|font-size|large` |
-| H4 | `var:preset|font-size|medium` |
-| H5 | `var:preset|font-size|small` (letter-spacing: 0.5px) |
-| H6 | `var:preset|font-size|small` (weight: 700, letter-spacing: 1.4px, uppercase) |
-
-### To change body typography
-
-```json
-mcm/set-global-styles {
-  "styles": {
-    "typography": {
-      "fontFamily": "var:preset|font-family|fira-code",
-      "fontSize": "var:preset|font-size|medium",
-      "fontWeight": "400",
-      "lineHeight": "1.6"
-    }
-  }
-}
-```
+| Heading | Font Size | Additional |
+|---------|-----------|------------|
+| H1 | `var:preset|font-size|xx-large` | — |
+| H2 | `var:preset|font-size|x-large` | — |
+| H3 | `var:preset|font-size|large` | — |
+| H4 | `var:preset|font-size|medium` | — |
+| H5 | `var:preset|font-size|small` | letter-spacing: 0.5px |
+| H6 | `var:preset|font-size|small` | weight: 700, letter-spacing: 1.4px, uppercase |
 
 ---
 
@@ -118,24 +131,11 @@ mcm/set-global-styles {
 | Content Size | 645px |
 | Wide Size | 1340px |
 
-### To change layout
-
-```json
-mcm/set-global-styles {
-  "settings": {
-    "layout": {
-      "contentSize": "720px",
-      "wideSize": "1200px"
-    }
-  }
-}
-```
-
 ---
 
 ## Spacing
 
-### Spacing Scale
+### Spacing Scale (7 sizes)
 
 | Name | Slug | Default Size | CSS Variable |
 |------|------|-------------|-------------|
@@ -163,23 +163,183 @@ mcm/set-global-styles {
 |------|------|-----------|
 | Page No Title | `page-no-title` | page |
 
-### Template Parts
+### Default Templates
 
-| Title | Slug | Area |
-|-------|------|------|
-| Header | `header` | header |
-| Vertical site header | `vertical-header` | header |
-| Header with large title | `header-large-title` | header |
-| Footer | `footer` | footer |
-| Footer Columns | `footer-columns` | footer |
-| Footer Newsletter | `footer-newsletter` | footer |
-| Sidebar | `sidebar` | uncategorized |
+| File | Purpose | Key Content |
+|------|---------|-------------|
+| `index.html` | Blog listing | Hidden blog heading + query loop pattern |
+| `home.html` | Front page | Hidden blog heading + query loop pattern |
+| `single.html` | Single post | Title + featured image (3:2) + written-by pattern + content + tags + nav + comments + more-posts |
+| `page.html` | Single page | Featured image + title + content |
+| `archive.html` | Archive | Query title + term description + query loop |
+| `search.html` | Search | Query title + search + query loop + more-posts |
+| `404.html` | Error page | Hidden-404 pattern |
+| `page-no-title.html` | Page without title | Content only (constrained, locked) |
+
+### Template Parts (7)
+
+| Title | Slug | Area | Content |
+|-------|------|------|---------|
+| Header | `header` | header | Site title + navigation |
+| Vertical site header | `vertical-header` | header | Vertical/sidebar header layout |
+| Header with large title | `header-large-title` | header | Prominent title header |
+| Footer | `footer` | footer | Standard footer |
+| Footer Columns | `footer-columns` | footer | Multi-column footer |
+| Footer Newsletter | `footer-newsletter` | footer | Footer with newsletter signup |
+| Sidebar | `sidebar` | uncategorized | Sidebar widget area |
 
 ---
 
 ## Post Formats
 
 Supported: `aside`, `audio`, `chat`, `gallery`, `image`, `link`, `quote`, `status`, `video`
+
+---
+
+## Custom Block Styles (from functions.php)
+
+| Block | Style Name | Description |
+|-------|-----------|-------------|
+| `core/list` | `checkmark-list` | Checkmark (✓) as list marker |
+
+---
+
+## Block Patterns (98 total)
+
+### Header Patterns
+
+| Slug | Description |
+|------|-------------|
+| `header` | Default site header |
+| `vertical-header` | Vertical/sidebar header |
+| `header-large-title` | Header with prominent title |
+| `header-centered` | Centered header |
+| `header-columns` | Multi-column header |
+
+### Footer Patterns
+
+| Slug | Description |
+|------|-------------|
+| `footer` | Standard footer |
+| `footer-columns` | Multi-column footer |
+| `footer-newsletter` | Footer with newsletter signup |
+| `footer-centered` | Centered footer |
+| `footer-social` | Footer with social links |
+
+### Blog Query Patterns
+
+| Slug | Description |
+|------|-------------|
+| `template-query-loop` | Standard post query loop |
+| `template-query-loop-text-blog` | Text-focused blog |
+| `template-query-loop-photo-blog` | Photo-focused blog |
+| `template-query-loop-news-blog` | News-style blog |
+| `template-query-loop-vertical-header-blog` | Query with vertical header |
+
+### Template Patterns (home, single, archive, search, 404)
+
+| Prefix | Description | Variants |
+|--------|-------------|----------|
+| `template-home-*` | Home page templates | news-blog, photo-blog, text-blog, vertical-header-blog, with-sidebar, posts-grid |
+| `template-single-*` | Single post templates | news-blog, photo-blog, text-blog, vertical-header-blog, offset, left-aligned |
+| `template-archive-*` | Archive templates | news-blog, photo-blog, text-blog, vertical-header-blog |
+| `template-search-*` | Search templates | news-blog, photo-blog, text-blog, vertical-header-blog |
+| `template-404-*` | 404 templates | vertical-header-blog |
+
+### Hero/Banner Patterns
+
+| Slug | Description |
+|------|-------------|
+| `hero-full-width-image` | Full-width hero with image |
+| `hero-book` | Book/product hero |
+| `hero-podcast` | Podcast hero |
+| `banner-intro` | Introduction banner |
+| `banner-intro-image` | Banner with image |
+| `banner-poster` | Poster-style banner |
+
+### Content Section Patterns
+
+| Category | Examples |
+|----------|---------|
+| CTA/Marketing | `cta-centered-heading`, `cta-newsletter`, `cta-events-list`, `cta-book-links` |
+| Services/Business | `services-3-col`, `services-team-photos`, `page-business-home` |
+| Testimonials | `testimonials-2-col`, `testimonials-6-col`, `testimonials-large` |
+| Pricing | `pricing-2-col`, `pricing-3-col` |
+| Events | `event-3-col`, `event-schedule`, `event-rsvp` |
+| Media | `media-instagram-grid`, `grid-videos`, `logos` |
+
+### Landing Page Patterns
+
+| Slug | Description |
+|------|-------------|
+| `page-landing-book` | Book landing page |
+| `page-landing-event` | Event landing page |
+| `page-landing-podcast` | Podcast landing page |
+| `page-coming-soon` | Coming soon page |
+| `page-cv-bio` | CV/bio page |
+| `page-link-in-bio-*` | Link-in-bio pages (3 variants) |
+
+### Hidden/Utility Patterns
+
+| Slug | Purpose |
+|------|---------|
+| `hidden-blog-heading` | Blog page heading |
+| `hidden-search` | Search heading |
+| `hidden-404` | 404 content |
+| `hidden-written-by` | Author metadata |
+| `hidden-sidebar` | Sidebar area |
+| `post-navigation` | Previous/next post navigation |
+| `comments` | Comments section |
+| `more-posts` | "Read more" CTA section |
+
+---
+
+## Style Variations (8 pre-built designs)
+
+### 1. Evening (dark theme)
+- **Colors:** Base `#1B1B1B`, Contrast `#F0F0F0`, Accent 1 `#786D0A` (olive), Accent 2 `#442369` (purple), Accent 5 `#353535`
+- **Fonts:** Base theme fonts (Manrope + Fira Code)
+- **Style:** Dark background, light text, subtle accents
+
+### 2. Noon (elegant light)
+- **Colors:** Base `#F8F7F5` (cream), Contrast `#191919`, Accent 1 `#FFFFFF`, Accent 2 `#F5B684` (peach)
+- **Fonts:** Beiruti (sans, 200–900) + Literata (serif, 200–900)
+- **Style:** Elegant serif body (Literata), Beiruti for buttons/site title, shadow on buttons
+
+### 3. Dusk (purple/tech)
+- **Colors:** Base `#E2E2E2`, Contrast `#3B3B3B`, Accent 1 `#F5EDFF` (light purple), Accent 2 `#650DD4` (vibrant purple)
+- **Fonts:** Vollkorn (serif, 400–900) + Fira Code (mono)
+- **Style:** Monospace body (Fira Code), Vollkorn serif headings, purple accent, custom h1-h5 pixel sizes
+
+### 4. Afternoon (green/nature)
+- **Colors:** Base `#DAE7BD` (sage), Contrast `#516028` (dark green), Accent 1 `#C7F642` (lime)
+- **Fonts:** Platypi (sans, 300–800) + Ysabeau Office (sans, 100–900)
+- **Style:** Nature palette, Ysabeau Office body, Platypi headings, sharp buttons (no radius), uppercase site title
+
+### 5. Twilight (dark blue/orange)
+- **Colors:** Base `#131313`, Contrast `#FFFFFF`, Accent 1 `#4B52FF` (blue), Accent 2 `#FF7A5C` (coral)
+- **Fonts:** Roboto Slab (serif, 100–900) + Manrope (sans)
+- **Style:** Dark theme, uppercase navigation + buttons, Roboto Slab headings (weight 300)
+
+### 6. Morning (blue/beige)
+- **Colors:** Base `#DFDCD7` (beige), Contrast `#191919`, Accent 1 `#7A9BDB` (blue), Accent 3 `#182949` (dark blue)
+- **Fonts:** Literata (serif, 200–900) + Ysabeau Office (sans)
+- **Style:** Ysabeau Office body, Literata headings (weight 900), blue accent buttons
+
+### 7. Sunrise (warm/tropical)
+- **Colors:** Base `#330616` (dark burgundy), Contrast `#FFFFFF`, Accent 1 `#F0FDA6` (pale yellow), Accent 2 `#DB9AB1` (dusty rose)
+- **Fonts:** Platypi (sans, 300–800) + Literata (serif)
+- **Style:** Dark burgundy base, Literata body (1.5rem), Platypi headings (weight 800), large typography
+
+### 8. Midnight (neon/cyberpunk)
+- **Colors:** Base `#4433A6` (deep purple), Contrast `#79F3B1` (neon cyan), Accent 5 `#E8B7FF` (magenta)
+- **Fonts:** Literata (serif, 200–900) + Fira Sans (sans, 100–900)
+- **Duotone:** Midnight filter (`#4433A6` → `#79F3B1`) applied to images, avatars, covers, logos
+- **Style:** Cyberpunk neon, Fira Sans body, Literata headings (weight 200), uppercase buttons
+
+### Section Variations
+
+All 8 style variations define `styles.variations` with numbered section styles (`section-1` through `section-5`, plus `post-terms-1`). These apply different colors to Group blocks using `.wp-block-group.is-style-section-N` classes.
 
 ---
 
@@ -194,6 +354,7 @@ Supported: `aside`, `audio`, `chat`, `gallery`, `image`, `link`, `quote`, `statu
 | Font Size | `var:preset|font-size|medium` |
 | Padding | `1rem 2.25rem` |
 | Hover Background | `color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent)` |
+| Focus Outline | 2px solid `accent-4`, offset 2px |
 
 ### Outline Variation
 
@@ -201,6 +362,7 @@ Supported: `aside`, `audio`, `chat`, `gallery`, `image`, `link`, `quote`, `statu
 |----------|-------|
 | Border | `1px solid currentColor` |
 | Padding | `calc(1rem - 1px) calc(2.25rem - 1px)` |
+| Hover Background | `color-mix(in srgb, var(--wp--preset--color--contrast) 5%, transparent)` |
 
 ---
 
@@ -213,43 +375,49 @@ Supported: `aside`, `audio`, `chat`, `gallery`, `image`, `link`, `quote`, `statu
 
 ---
 
-## Per-Block Default Styles
+## Per-Block Default Styles (30+ blocks configured)
 
-### core/code
-- Font: `fira-code`, medium size, weight 300
-- Background: `accent-5`, text: `contrast`
-- Padding: `spacing-40` all sides
+### Navigation & Site Identity
 
-### core/quote
-- Left border: 2px solid currentColor
-- Font size: large, weight 300
-- Padding: `spacing-30` top/bottom, `spacing-40` left/right
-- **Plain variation:** no border, no padding
+| Block | Key Styles |
+|-------|-----------|
+| `core/navigation` | Font size: medium. Links: no underline, underline on hover |
+| `core/site-title` | Weight: 700, letter-spacing: -0.5px. Link: no underline, underline on hover |
+| `core/site-tagline` | Font size: medium |
 
-### core/pullquote
-- Font size: `xx-large`, weight 300, line-height 1.2
-- Padding: `spacing-30` top/bottom
+### Post Content
 
-### core/navigation
-- Font size: medium
-- Links: no underline, underline on hover
+| Block | Key Styles |
+|-------|-----------|
+| `core/post-title` | Link: no underline, underline on hover |
+| `core/post-date` | Color: `accent-4`, font size: small. Link: no underline, underline on hover |
+| `core/post-terms` | Font size: small, weight: 600. CSS: `a { white-space: nowrap }` |
+| `core/post-navigation-link` | Font size: medium |
 
-### core/search
-- Input: rounded (3.125rem border-radius)
-- Button: rounded (3.125rem border-radius)
+### Comment Blocks
 
-### core/separator
-- 1px solid bottom border, color: `accent-6`
+| Block | Key Styles |
+|-------|-----------|
+| `core/comment-author-name` | Color: `accent-4`, font size: small |
+| `core/comment-content` | Font size: medium |
+| `core/comment-date` | Font size: small, color: contrast |
+| `core/comment-edit-link` | Font size: small |
+| `core/comment-reply-link` | Font size: small |
+| `core/post-comments-form` | Custom CSS for textarea/input styling |
+| `core/comments-pagination` | Font size: medium, weight: 500 |
 
-### core/avatar
-- Border radius: 100px (circular)
+### Content Blocks
 
-### core/site-title
-- Font weight: 700, letter-spacing: -0.5px
-- Link: no underline, underline on hover
-
-### core/post-date
-- Color: `accent-4`, font size: small
-
-### core/post-terms
-- Font size: small, weight: 600
+| Block | Key Styles |
+|-------|-----------|
+| `core/code` | Font: `fira-code`, medium, weight 300. Bg: `accent-5`. Padding: `spacing-40` |
+| `core/quote` | Left border: 2px solid currentColor. Font: large, weight 300. **Plain variation:** no border/padding |
+| `core/pullquote` | Font: `xx-large`, weight 300, line-height 1.2. Cite: small, normal |
+| `core/separator` | 1px solid bottom, color: `accent-6` |
+| `core/avatar` | Border radius: 100px |
+| `core/search` | Input/button: rounded (3.125rem), input border: `accent-6` |
+| `core/columns` | Block gap: `spacing-50` |
+| `core/buttons` | Block gap: 16px |
+| `core/list` | CSS: `li { margin-top: 0.5rem }` |
+| `core/query-pagination` | Font size: medium, weight: 500 |
+| `core/term-description` | Font size: medium |

@@ -1,6 +1,21 @@
-# Twenty Twenty-Three — Configurable Options
+# Twenty Twenty-Three — Complete Configurable Options
 
 All values below are the **theme.json defaults**. User overrides are stored in Global Styles (`wp_global_styles` post type). Use `var:preset|{type}|{slug}` format to reference presets in styles.
+
+---
+
+## Global Settings
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| `$schema` | `https://schemas.wp.org/wp/6.5/theme.json` | Theme.json schema version |
+| `version` | `2` | Theme.json spec version |
+| `appearanceTools` | `true` | Enables all appearance editing tools (border, spacing, dimensions, etc.) |
+| `useRootPaddingAwareAlignments` | `true` | Full-width blocks honor root padding |
+| `typography.dropCap` | `false` | Drop caps intentionally disabled |
+| `typography.fluid` | `true` | Responsive fluid typography enabled globally |
+| `spacing.spacingScale.steps` | `0` | Custom spacing scale (no auto-generation) |
+| `spacing.units` | `%`, `px`, `em`, `rem`, `vh`, `vw` | Allowed CSS units for spacing |
 
 ---
 
@@ -16,7 +31,7 @@ All values below are the **theme.json defaults**. User overrides are stored in G
 
 **Default styles:** Background = `base`, Text = `contrast`
 
-**Notes:** No default duotone or gradient presets. 5-color palette is intentionally minimal to encourage style variations.
+**Notes:** No default duotone or gradient presets in the base theme. 5-color palette is intentionally minimal — style variations add their own palettes, duotones, and gradients.
 
 ### To change a color
 
@@ -44,13 +59,13 @@ mcm/set-global-styles {
 
 ### Font Families
 
-| Name | Slug | Font Stack | Weight Range | Type |
-|------|------|-----------|-------------|------|
-| DM Sans | `dm-sans` | `"DM Sans", sans-serif` | 400, 700 (with italic) | Sans-serif |
-| IBM Plex Mono | `ibm-plex-mono` | `'IBM Plex Mono', monospace` | 300, 400, 700 (with italic) | Monospace |
-| Inter | `inter` | `"Inter", sans-serif` | 200–900 (variable) | Sans-serif |
-| System Font | `system-font` | System stack | — | Fallback |
-| Source Serif Pro | `source-serif-pro` | `"Source Serif Pro", serif` | 200–900 (variable, with italic) | Serif |
+| Name | Slug | Font Stack | Weight Range | Italic | Type |
+|------|------|-----------|-------------|--------|------|
+| DM Sans | `dm-sans` | `"DM Sans", sans-serif` | 400, 700 | Yes (400i, 700i) | Sans-serif |
+| IBM Plex Mono | `ibm-plex-mono` | `'IBM Plex Mono', monospace` | 300, 400, 700 | Yes (400i) | Monospace |
+| Inter | `inter` | `"Inter", sans-serif` | 200–900 (variable) | No | Sans-serif (variable) |
+| System Font | `system-font` | System stack | — | — | Fallback |
+| Source Serif Pro | `source-serif-pro` | `"Source Serif Pro", serif` | 200–900 (variable) | Yes (200–900i) | Serif (variable) |
 
 **Default body font:** `system-font`
 
@@ -132,20 +147,175 @@ mcm/set-global-styles {
 | Blog (Alternative) | `blog-alternative` | page |
 | 404 | `404` | page |
 
+### Default Templates
+
+| File | Purpose | Key Content |
+|------|---------|-------------|
+| `index.html` | Blog listing | Query loop with post-template, pagination |
+| `home.html` | Homepage | Alternative blog with columns, CTA pattern |
+| `archive.html` | Archive/category | Query title + post listing + pagination |
+| `search.html` | Search results | Query title + search form + post listing |
+| `single.html` | Single post | Featured image, title, content, post-meta, comments |
+| `page.html` | Single page | Featured image, title, content, comments |
+| `blank.html` | Custom blank | Post content only (constrained) |
+| `404.html` | Error page | Header + 404 pattern + footer |
+| `blog-alternative.html` | Alternative blog | Minimal columns layout with date + title |
+
 ### Template Parts
 
-| Title | Slug | Area |
-|-------|------|------|
-| Header | `header` | header |
-| Footer | `footer` | footer |
-| Comments Template Part | `comments` | uncategorized |
-| Post Meta | `post-meta` | uncategorized |
+| Title | Slug | Area | Content |
+|-------|------|------|---------|
+| Header | `header` | header | Site title (level 0) + Navigation (flex), padding-bottom spacing-40 |
+| Footer | `footer` | footer | Delegates to `twentytwentythree/footer-default` pattern |
+| Comments | `comments` | uncategorized | Delegates to `twentytwentythree/hidden-comments` pattern |
+| Post Meta | `post-meta` | uncategorized | Delegates to `twentytwentythree/post-meta` pattern |
 
 ---
 
-## Style Variations
+## Block Patterns
 
-Twenty Twenty-Three includes **10 style variations** in its `styles/` directory. Each variation redefines colors, fonts, and element styles. They can be applied via the Site Editor or programmatically (see SKILL.md procedure step 3).
+### Visible Patterns (shown in inserter)
+
+| Title | Slug | Category | Description |
+|-------|------|----------|-------------|
+| Default Footer | `twentytwentythree/footer-default` | footer | Site title + "Powered by WordPress" text |
+| Post Meta | `twentytwentythree/post-meta` | query | Date, category, author, tags with separator |
+| Call to Action | `twentytwentythree/cta` | featured | Left-aligned text with CTA button and separator |
+
+### Hidden Patterns (used internally by templates)
+
+| Title | Slug | Used By |
+|-------|------|---------|
+| Comments | `twentytwentythree/hidden-comments` | comments template part |
+| 404 | `twentytwentythree/hidden-404` | 404 template |
+| No Results | `twentytwentythree/hidden-no-results-content` | search template |
+| Heading | `twentytwentythree/hidden-heading` | home template |
+
+---
+
+## Style Variations (10 Pre-Built Designs)
+
+Each variation completely redefines the color palette, and often changes fonts, button styles, and element appearances. Apply via `mcm/set-global-styles` with `merge_mode: "replace"`.
+
+### 1. Aubergine
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#1B1031` (dark purple) |
+| Contrast | `contrast` | `#FFFFFF` |
+| Primary | `primary` | `#FF746D` (coral) |
+| Secondary | `secondary` | `#551C5E` (purple) |
+| Tertiary | `tertiary` | `#FB326B` (pink) |
+
+**Key changes:** DM Sans body font, navigation medium size, buttons rounded (99999px) with gradient (tertiary→primary), site title uppercase with bottom border, italic post author/date/terms. 4 custom gradients.
+
+### 2. Block Out
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#ff5252` (bright red) |
+| Contrast | `contrast` | `#252525` (dark gray) |
+| Primary | `primary` | `#ffffff` |
+| Secondary | `secondary` | `#ff2d34` (red) |
+| Tertiary | `tertiary` | `#ff7e7e` (light red) |
+
+**Key changes:** Content width → 800px, xx-large → 7rem, site title xx-large italic lowercase, navigation large, IBM Plex Mono for headings/buttons (italic), duotone filter (red→light red), root padding 0.
+
+### 3. Canary
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#fdff85` (bright yellow) |
+| Contrast | `contrast` | `#000000` |
+| Primary | `primary` | `#000000` |
+| Secondary | `secondary` | `#353535` |
+| Tertiary | `tertiary` | `#ffffff` |
+
+**Key changes:** Full monospace theme (IBM Plex Mono body), font size small (0.75rem), wide size → 650px, images with top-left rounded corner (100px), buttons 5px radius with 2px border, duotone default (black→white).
+
+### 4. Electric
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#f3f3f1` (off-white) |
+| Contrast | `contrast` | `#2500ff` (electric blue) |
+| Primary | `primary` | `#f3f3f1` |
+| Secondary | `secondary` | `#2500ff` |
+| Tertiary | `tertiary` | `#f6f6f6` |
+
+**Key changes:** DM Sans body font, buttons with 2px border and custom padding, dotted underline on active/focus states.
+
+### 5. Grapes
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#E1E1C7` (light beige) |
+| Contrast | `contrast` | `#000000` |
+| Primary | `primary` | `#214F31` (dark green) |
+| Secondary | `secondary` | `#000000` |
+| Tertiary | `tertiary` | `#F0EBD2` (cream) |
+
+**Key changes:** Rounded buttons (9999px) with primary bg, Source Serif Pro for headings (600 weight), italic post date/terms, site title lowercase, dashed underline on link hover.
+
+### 6. Marigold
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#F6F2EC` (beige) |
+| Contrast | `contrast` | `#21251F` (dark brown) |
+| Primary | `primary` | `#5B4460` (purple-brown) |
+| Secondary | `secondary` | `#FCC263` (yellow) |
+| Tertiary | `tertiary` | `#E7A1A9` (mauve) |
+
+**Key changes:** Source Serif Pro body font, italic headings, pill buttons (50px radius) with secondary bg, custom spacing scale (6 sizes), extended font sizes with "tiny", "normal", "huge", "gigantic" slugs (9 total).
+
+### 7. Pilgrimage
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#222828` (dark gray) |
+| Contrast | `contrast` | `#ffffff` |
+| Primary | `primary` | `#53ED85` (bright green) |
+| Secondary | `secondary` | `#9EF9FD` (cyan) |
+| Tertiary | `tertiary` | `#D8E202` (lime) |
+
+**Key changes:** Dark theme with dots gradient background, navigation with primary color + underline, duotone filter (dark gray→cyan), buttons rounded (5px) with gradient (primary→secondary), H1/H2 contrast color, H3-H6 primary color, links primary with tertiary hover. 6 custom gradients.
+
+### 8. Pitch
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#202124` (very dark gray) |
+| Contrast | `contrast` | `#e8eaed` (light gray) |
+| Primary | `primary` | `#e3cbc0` (tan) |
+| Secondary | `secondary` | `#876C3A` (brown) |
+| Tertiary | `tertiary` | `#303134` (dark gray) |
+
+**Key changes:** Inter body font, content width → `min(640px, 90vw)`, wide width → `90vw`, buttons square (0 radius) + primary bg + uppercase, headings weight 500, custom 7-step spacing scale.
+
+### 9. Sherbet
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#FFFFFF` |
+| Contrast | `contrast` | `#000000` |
+| Primary | `primary` | `#FFCCFF` (light magenta) |
+| Secondary | `secondary` | `#FFFFCC` (light yellow) |
+| Tertiary | `tertiary` | `#CCFFFF` (light cyan) |
+
+**Key changes:** Navigation small + uppercase + weight 500, buttons rounded (99999px) + 2px border + gradient bg + uppercase, duotone filter (3-color: magenta, yellow, cyan), 3 custom gradients, x-small font size added (0.75rem).
+
+### 10. Whisper
+
+| Color | Slug | Hex |
+|-------|------|-----|
+| Base | `base` | `#E5E7F2` (light purple-gray) |
+| Contrast | `contrast` | `#47484B` (dark gray) |
+| Primary | `primary` | `#B50B3E` (deep red) |
+| Secondary | `secondary` | `#0B0033` (deep purple) |
+| Tertiary | `tertiary` | `#F9F9FB` (nearly white) |
+
+**Key changes:** Content width → 710px, navigation large + underline border, buttons rounded (10px) + transparent bg + primary border + shadow (2px 2px 6px), links with 2px solid underline border, quote/pullquote double borders (6px), tertiary root border with `max(1vw, 0.5rem)` width, custom fluid font sizes (H1–H6 with clamp() formulas).
 
 ---
 
@@ -161,6 +331,7 @@ Twenty Twenty-Three includes **10 style variations** in its `styles/` directory.
 | Hover | Background: `contrast`, text: `base` |
 | Focus | Background: `contrast`, text: `base` |
 | Active | Background: `secondary`, text: `base` |
+| Visited | Text: `contrast` |
 
 ---
 
@@ -175,54 +346,48 @@ Twenty Twenty-Three includes **10 style variations** in its `styles/` directory.
 
 ---
 
-## Per-Block Default Styles
+## Per-Block Default Styles (21 blocks configured)
 
-### core/navigation
-- Font size: small
-- Links: no underline; hover: underline; focus: underline dashed; active: none
+### Navigation & Site
 
-### core/post-content
-- Links color: `secondary`
+| Block | Key Styles |
+|-------|-----------|
+| `core/navigation` | Font size: small. Links: no underline; hover: underline; focus: underline dashed; active: none |
+| `core/site-title` | Font size: medium, weight: normal, line-height: 1.4. Links: no underline; hover: underline; focus: dashed; active: secondary |
 
-### core/post-title
-- Margin: 1.25rem top/bottom, weight: 400
-- Links: no underline; hover: underline; focus: dashed; active: `secondary` + none
+### Post Content
 
-### core/post-date
-- Font size: small, weight: 400
-- Links: no underline; hover: underline
+| Block | Key Styles |
+|-------|-----------|
+| `core/post-content` | Links color: `secondary` |
+| `core/post-title` | Font size: inherit, weight: 400, margin: 1.25rem top/bottom. Links: no underline; hover: underline; focus: dashed; active: secondary + none |
+| `core/post-author` | Font size: small |
+| `core/post-date` | Font size: small, weight: 400. Links: no underline; hover: underline |
+| `core/post-terms` | Font size: small |
+| `core/post-excerpt` | Font size: medium |
 
-### core/post-terms
-- Font size: small
+### Comment Blocks
 
-### core/post-excerpt
-- Font size: medium
+| Block | Key Styles |
+|-------|-----------|
+| `core/comments-title` | Font size: large, margin-bottom: spacing-40 |
+| `core/comment-author-name` | Links: no underline; hover: underline; focus: dashed; active: secondary + none |
+| `core/comment-date` | Font size: small. Links: no underline; hover: underline; focus: dashed; active: secondary + none |
+| `core/comment-edit-link` | Font size: small |
+| `core/comment-reply-link` | Font size: small |
+| `core/comments-pagination` | Margin-top: spacing-40, link text-decoration: none |
 
-### core/comments-title
-- Font size: large
-- Margin bottom: `spacing-40`
+### Content Blocks
 
-### core/pullquote
-- Border: 1px solid top/bottom
-- Cite: small size, normal style, no text-transform
-- Line height: 1.3
-- Margin: `spacing-40` top/bottom
+| Block | Key Styles |
+|-------|-----------|
+| `core/pullquote` | Border: 1px solid top/bottom, line-height: 1.3, margin: spacing-40 top/bottom (important). Cite: small size, normal style, no text-transform |
+| `core/quote` | Left border: 1px solid inherit, padding: spacing-30 left/right. Cite: small, normal style |
+| `core/separator` | Non-full/wide: 100px width (CSS rule) |
 
-### core/quote
-- Left border: 1px solid inherit
-- Padding: `spacing-30` left/right
-- Cite: small, normal style
+### Query & Pagination
 
-### core/query-pagination
-- Font size: small, weight: 400
-- Links: no underline; hover: underline
-
-### core/site-title
-- Font size: medium, weight: normal, line-height: 1.4
-- Links: no underline; hover: underline; focus: dashed; active: `secondary`
-
-### core/separator
-- Non-full/wide: 100px width
-
-### core/post-author
-- Font size: small
+| Block | Key Styles |
+|-------|-----------|
+| `core/query` | Element h2: x-large font size |
+| `core/query-pagination` | Font size: small, weight: 400. Links: no underline; hover: underline |

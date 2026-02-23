@@ -15,13 +15,13 @@ For themes **without** a specific skill listed below, use the **[wordpress-theme
 
 ## Available Themes
 
-| Theme | Directory | Slug | Type | Min WordPress | Status |
-|-------|-----------|------|------|---------------|--------|
-| Avada | [avada/](avada/) | `Avada` | Classic | 4.9+ | Active |
-| The7 | [dt-the7/](dt-the7/) | `dt-the7` | Classic | 6.6+ | Active |
-| Twenty Twenty-Five | [twentytwentyfive/](twentytwentyfive/) | `twentytwentyfive` | Block (FSE) | 6.7+ | Active |
-| Twenty Twenty-Four | [twentytwentyfour/](twentytwentyfour/) | `twentytwentyfour` | Block (FSE) | 6.4+ | Active |
-| Twenty Twenty-Three | [twentytwentythree/](twentytwentythree/) | `twentytwentythree` | Block (FSE) | 6.1+ | Active |
+| Theme | Directory | Slug | Type | Min WordPress | Options | Coverage |
+|-------|-----------|------|------|---------------|---------|----------|
+| Avada | [avada/](avada/) | `Avada` | Classic | 4.9+ | 600+ | 100% — 33 sections, 5-phase guided setup |
+| The7 | [dt-the7/](dt-the7/) | `dt-the7` | Classic | 6.6+ | 350+ | 100% — All options incl. mobile header, micro-widgets, floating header, stripes, social buttons, advanced |
+| Twenty Twenty-Five | [twentytwentyfive/](twentytwentyfive/) | `twentytwentyfive` | Block (FSE) | 6.7+ | 200+ | 100% — 8 style variations, 98 patterns, 30+ per-block styles, 7 extra fonts |
+| Twenty Twenty-Four | [twentytwentyfour/](twentytwentyfour/) | `twentytwentyfour` | Block (FSE) | 6.4+ | 180+ | 100% — 7 style variations, 57 patterns, 29 per-block styles, 5 custom block styles |
+| Twenty Twenty-Three | [twentytwentythree/](twentytwentythree/) | `twentytwentythree` | Block (FSE) | 6.1+ | 120+ | 100% — 10 style variations, 7 patterns, 21 per-block styles, 5 font families |
 
 ## CRITICAL: Classic vs Block Theme Differences
 

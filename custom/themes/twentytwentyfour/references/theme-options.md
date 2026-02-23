@@ -1,10 +1,26 @@
-# Twenty Twenty-Four — Configurable Options
+# Twenty Twenty-Four — Complete Configurable Options
 
 All values below are the **theme.json defaults**. User overrides are stored in Global Styles (`wp_global_styles` post type). Use `var:preset|{type}|{slug}` format to reference presets in styles.
 
 ---
 
-## Color Palette
+## Global Settings
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| `appearanceTools` | `true` | Enables all appearance editing tools |
+| `useRootPaddingAwareAlignments` | `true` | Full-width blocks honor root padding |
+| `typography.fluid` | `true` | Responsive fluid typography enabled |
+| `typography.writingMode` | `true` | RTL language support |
+| `color.defaultDuotone` | `false` | Only custom duotones |
+| `color.defaultPalette` | `false` | Only custom palette |
+| `color.defaultGradients` | `false` | Only custom gradients |
+| `spacing.spacingScale.steps` | `0` | Custom spacing scale |
+| `spacing.units` | `%`, `px`, `em`, `rem`, `vh`, `vw` | Allowed CSS units |
+
+---
+
+## Color Palette (10 colors)
 
 | Name | Slug | Default | CSS Variable |
 |------|------|---------|-------------|
@@ -48,7 +64,7 @@ mcm/set-global-styles {
 
 ---
 
-## Duotone Presets
+## Duotone Presets (5)
 
 | Name | Slug | Colors |
 |------|------|--------|
@@ -62,7 +78,7 @@ mcm/set-global-styles {
 
 ---
 
-## Gradient Presets
+## Gradient Presets (12)
 
 ### Soft Gradients
 
@@ -95,7 +111,7 @@ mcm/set-global-styles {
 | Name | Slug | Font Stack | Weight Range | Type |
 |------|------|-----------|-------------|------|
 | Inter | `body` | `"Inter", sans-serif` | 300–900 (variable) | Body text |
-| Cardo | `heading` | `Cardo` | 400, 700 | Headings |
+| Cardo | `heading` | `Cardo` | 400, 700 (with 400 italic) | Headings |
 | System Sans-serif | `system-sans-serif` | System stack | — | Fallback |
 | System Serif | `system-serif` | Iowan Old Style, etc. | — | Fallback |
 
@@ -130,14 +146,14 @@ mcm/set-global-styles {
 | Font Weight | 400 |
 | Line Height | 1.2 |
 
-| Heading | Font Size |
-|---------|-----------|
-| H1 | `var:preset|font-size|xx-large` (line-height: 1.15) |
-| H2 | `var:preset|font-size|x-large` |
-| H3 | `var:preset|font-size|large` |
-| H4 | `clamp(1.1rem, 1.1rem + ((1vw - 0.2rem) * 0.767), 1.5rem)` |
-| H5 | `var:preset|font-size|medium` |
-| H6 | `var:preset|font-size|small` |
+| Heading | Font Size | Additional |
+|---------|-----------|------------|
+| H1 | `var:preset|font-size|xx-large` | line-height: 1.15 |
+| H2 | `var:preset|font-size|x-large` | — |
+| H3 | `var:preset|font-size|large` | — |
+| H4 | `clamp(1.1rem, 1.1rem + ((1vw - 0.2rem) * 0.767), 1.5rem)` | — |
+| H5 | `var:preset|font-size|medium` | — |
+| H6 | `var:preset|font-size|small` | — |
 
 ---
 
@@ -175,28 +191,178 @@ mcm/set-global-styles {
 
 ### Custom Templates
 
-| Title | Slug | Post Types |
-|-------|------|-----------|
-| Page No Title | `page-no-title` | page |
-| Page with Sidebar | `page-with-sidebar` | page |
-| Page with Wide Image | `page-wide` | page |
-| Single with Sidebar | `single-with-sidebar` | post |
+| Title | Slug | Post Types | Description |
+|-------|------|-----------|-------------|
+| Page No Title | `page-no-title` | page | Page without title |
+| Page with Sidebar | `page-with-sidebar` | page | 3-column: content (60%) + sidebar (30%) |
+| Page with Wide Image | `page-wide` | page | Hero layout with featured image |
+| Single with Sidebar | `single-with-sidebar` | post | Post with sidebar |
+
+### Default Templates
+
+| File | Purpose | Key Content |
+|------|---------|-------------|
+| `page.html` | Single page | Header + title + featured image + content + footer |
+| `single.html` | Single post | Title (centered, x-large) + featured image + content + tags + separator + comments + nav |
+| `home.html` | Homepage | Embeds `page-home-business` pattern |
+| `index.html` | Blog listing | Embeds `hidden-posts-heading` + `posts-3-col` patterns |
+| `archive.html` | Archive page | Query title + `posts-3-col` pattern |
+| `search.html` | Search results | Query title + search form + `posts-3-col` pattern |
+| `404.html` | Error page | Embeds `hidden-404` pattern |
 
 ### Template Parts
 
-| Title | Slug | Area |
-|-------|------|------|
-| Header | `header` | header |
-| Footer | `footer` | footer |
-| Sidebar | `sidebar` | uncategorized |
-| Post Meta | `post-meta` | uncategorized |
+| Title | Slug | Area | Content |
+|-------|------|------|---------|
+| Header | `header` | header | Logo + site title + navigation (flex, space-between) |
+| Footer | `footer` | footer | References `twentytwentyfour/footer` pattern (4-col nav + colophon) |
+| Sidebar | `sidebar` | uncategorized | References `twentytwentyfour/hidden-sidebar` pattern |
+| Post Meta | `post-meta` | uncategorized | References `twentytwentyfour/hidden-post-meta` pattern |
 
 ---
 
-## Block Patterns (from pattern directory)
+## Custom Block Styles (from functions.php)
 
-- `three-columns-of-services`
-- `clients-section`
+| Block | Style Name | Description |
+|-------|-----------|-------------|
+| `core/details` | `arrow-icon-details` | Arrow unicode characters (down/right) as list markers, changes on open |
+| `core/post-terms` | `pill` | Inline pill/badge styling with background, padding, rounded corners |
+| `core/list` | `checkmark-list` | Checkmark (✓) as list marker |
+| `core/navigation-link` | `arrow-link` | Appends northeast arrow (↗) to link text |
+| `core/heading` | `asterisk` | Decorative asterisk mark using SVG clip-path, responsive positioning |
+
+---
+
+## Block Patterns (57 total)
+
+### Page Layout Patterns
+
+| Slug | Description |
+|------|-------------|
+| `page-home-business` | Business home page (used by home.html) |
+| `page-home-portfolio` | Portfolio home page |
+| `page-portfolio-overview` | Portfolio overview page |
+| `page-rsvp-landing` | RSVP/event landing page |
+| `page-about-business` | About page for business |
+| `page-home-blogging` | Blog-focused home page |
+
+### Banner/Hero Patterns
+
+| Slug | Description |
+|------|-------------|
+| `banner-hero` | Full-width hero with heading, paragraph, CTA button |
+| `banner-hero-full` | Full-width hero (expanded) |
+| `banner-project-description` | Project description banner |
+
+### Call to Action Patterns
+
+| Slug | Description |
+|------|-------------|
+| `cta-subscribe-centered` | Centered subscription CTA |
+| `cta-services-image-left` | Services CTA with left image |
+| `cta-content-image-on-right` | Content with image on right |
+| `cta-rsvp` | RSVP form CTA |
+
+### Gallery Patterns
+
+| Slug | Description |
+|------|-------------|
+| `gallery-full-screen-image` | Full-screen image gallery |
+| `gallery-project-layout` | Project gallery layout |
+| `gallery-offset-images-grid-4-col` | 4-column offset grid |
+
+### Post/Content Patterns
+
+| Slug | Description |
+|------|-------------|
+| `posts-3-col` | 3-column query loop with featured image, title, meta, excerpt |
+| `posts-images-only-3-col` | Image-only 3-column grid |
+| `posts-images-only-offset-4-col` | Offset 4-column image grid |
+| `text-feature-grid-3-col` | 3-column feature text grid |
+
+### Template Patterns (9, used in default templates)
+
+| Slug | Used By |
+|------|---------|
+| `template-home-blogging` | Blog-style home |
+| `template-home-business` | Business home |
+| `template-home-portfolio` | Portfolio home |
+| `template-index-blogging` | Blog index |
+| `template-index-portfolio` | Portfolio index |
+| `template-archive-blogging` | Blog archive |
+| `template-archive-portfolio` | Portfolio archive |
+| `template-search-blogging` | Blog search |
+| `template-search-portfolio` | Portfolio search |
+| `template-single-portfolio` | Single portfolio item |
+
+### Hidden Patterns (10, not in inserter)
+
+| Slug | Purpose |
+|------|---------|
+| `hidden-404` | 404 error page content |
+| `hidden-comments` | Comments section with threading and pagination |
+| `hidden-no-results` | No results message + search form |
+| `hidden-post-navigation` | Previous/next post navigation |
+| `hidden-post-meta` | Post metadata display |
+| `hidden-search` | Search heading |
+| `hidden-sidebar` | Sidebar widget area |
+| `hidden-portfolio-hero` | Portfolio hero section |
+
+### Other Notable Patterns
+
+| Slug | Description |
+|------|-------------|
+| `team-4-col` | 4-column team member grid |
+| `testimonial-centered` | Centered testimonial |
+| `footer` | 4-column footer with nav links and colophon |
+| `footer-colophon-3-col` | 3-column colophon footer |
+
+---
+
+## Style Variations (7 pre-built designs)
+
+### 1. Fossil
+- **Colors:** Brownish/neutral (beige base, dark brown contrast)
+- **Fonts:** Inter (heading), Cardo (body) — SWAPPED from default
+- **Font Sizes:** Larger scale (1rem, 1.2rem, 2rem, 2.65rem, 3.5rem)
+- **Buttons:** 100px border-radius (pill), 2px border outline
+- **Style:** Neutral earth tones, elegant feel
+
+### 2. Ice
+- **Colors:** Cool blue palette (light ice base, dark ink contrast)
+- **Fonts:** Inter (heading), Jost (body) — introduces Jost sans-serif
+- **Buttons:** 4px radius, uppercase text, 0.75rem, letter-spacing 0.1rem
+- **Style:** Cold blue tones, 12 unique gradients, modern tech aesthetic
+
+### 3. Maelstrom
+- **Colors:** Dark blue base (#040D3C), white contrast
+- **Fonts:** Cardo (body), Jost (heading) — serif body + sans heading
+- **Buttons:** 6px radius
+- **Style:** Dark blue background with white text, no custom duotones
+
+### 4. Mint
+- **Colors:** Light mint/green base, black contrast
+- **Fonts:** Instrument Sans (heading), Jost (body) — new modern sans pairing
+- **Style:** Clean modern sans-serif, custom heading sizes for h1-h5
+
+### 5. Rust
+- **Colors:** Minimal palette (beige base, rust contrast)
+- **Duotones:** 1 custom (dark rust to beige)
+- **Gradients:** 4 custom (transparent rust, hard transitions)
+- **Style:** Minimal, transparent gradient overlays, rust/orange accent
+
+### 6. Ember
+- **Colors:** Warm (warm base, black contrast, orange accent)
+- **Fonts:** Instrument Sans (body), Jost (heading)
+- **Duotones:** 1 custom (orange and white), applied to images by default
+- **Gradients:** 12 warm transitions (beige to orange/brown)
+- **Style:** Warm aesthetic with default duotone filter on images
+
+### 7. Onyx
+- **Colors:** Dark grey base, light contrast, extensive 10-color accent palette
+- **Duotones:** 5 custom (dark gray paired with earth tones)
+- **Gradients:** 12 dark transitions
+- **Style:** Dark mode, most extensive palette of all variations
 
 ---
 
@@ -234,49 +400,63 @@ mcm/set-global-styles {
 
 ---
 
-## Per-Block Default Styles
+## Per-Block Default Styles (29 blocks configured)
 
-### core/code
-- Border: `contrast`, radius: `spacing-20`
-- Background: `base-2`, text: `contrast-2`
-- Font: medium size, normal style, weight 400, line-height 1.6
-- Padding: `calc(spacing-30 + 0.75rem)` all sides
+### Navigation & Site Identity
 
-### core/quote
-- Background: `base-2`, border-radius: `spacing-20`
-- Font: `heading` family, large size, italic, line-height 1.3
-- **Plain variation:** transparent background, no border, `body` family, medium size, normal style
+| Block | Key Styles |
+|-------|-----------|
+| `core/navigation` | Links: no underline, underline on hover. Font weight: 500 |
+| `core/site-title` | Font: `body` family, 1.2rem, weight 600. Link: no underline (no change on hover) |
+| `core/site-tagline` | Color: `contrast-2`, font size: small |
 
-### core/pullquote
-- Font: `heading` family, `x-large` size, italic, weight 400, line-height 1.5
-- Border radius: `spacing-20`
-- Padding: `spacing-40` top/bottom
+### Post Content
 
-### core/navigation
-- Links: no underline, underline on hover
-- Font weight: 500
+| Block | Key Styles |
+|-------|-----------|
+| `core/post-title` | Link: no underline, underline on hover |
+| `core/post-author` | Font size: small |
+| `core/post-author-name` | Font size: small. Link: no underline, underline on hover |
+| `core/post-date` | Color: `contrast-2`, font size: small. Link: `contrast-2`, no underline, underline on hover |
+| `core/post-excerpt` | Line height: 1.6 |
+| `core/post-terms` | Font size: small. Link: no underline, underline on hover. CSS: prefix color override |
+| `core/post-featured-image` | Border radius: `spacing-20` |
+| `core/post-navigation-link` | — (default styles) |
 
-### core/search
-- Input: 0.33rem border-radius
-- Button: inherits button border-radius
+### Comment Blocks
 
-### core/separator
-- 1px solid bottom border, color: `contrast`
-- Non-full-width default: `spacing-60` max-width
+| Block | Key Styles |
+|-------|-----------|
+| `core/comment-author-name` | Color: contrast, font size: small, weight: 600. Link: no underline, underline on hover |
+| `core/comment-content` | Font size: small, margin top/bottom: `spacing-20` |
+| `core/comment-date` | Color: `contrast-2`, font size: small |
+| `core/comment-edit-link` | Font size: small. Link: `contrast-2` |
+| `core/comment-reply-link` | Font size: small |
+| `core/post-comments-form` | Input border-radius: 0.33rem |
+| `core/comments-pagination` | Font size: small (all pagination variants) |
 
-### core/image
-- **Rounded variation:** border-radius: `spacing-20`
+### Content Blocks
 
-### core/site-title
-- Font: `body` family, 1.2rem size, weight 600, normal style
-- Link: no underline (no change on hover)
+| Block | Key Styles |
+|-------|-----------|
+| `core/code` | Border: `contrast`, radius: `spacing-20`. Bg: `base-2`, text: `contrast-2`. Font: medium, weight 400, line-height 1.6. Padding: `calc(spacing-30 + 0.75rem)` |
+| `core/quote` | Bg: `base-2`, border-radius: `spacing-20`. Font: `heading` family, large, italic, line-height 1.3. **Plain variation:** transparent bg, no border, `body` family, medium, normal |
+| `core/pullquote` | Font: `heading` family, `x-large`, italic, weight 400, line-height 1.5. Border radius: `spacing-20`. Padding: `spacing-40` top/bottom. Cite: `body` family, medium, normal |
+| `core/separator` | 1px solid bottom border, color: `contrast`. Non-full-width: `spacing-60` max-width |
+| `core/image` | **Rounded variation:** border-radius: `spacing-20` |
+| `core/avatar` | Border radius: 90px (circular) |
+| `core/gallery` | Margin bottom: `spacing-50` |
+| `core/list` | Padding left: `spacing-10` |
+| `core/footnotes` | Font size: small |
+| `core/calendar` | Custom CSS for table styling |
+| `core/categories` | Padding left/right: 0px, custom list styling |
+| `core/search` | Input: 0.33rem border-radius. Button: inherits border-radius. Font size: small |
+| `core/loginout` | Custom CSS: border-radius 0.33rem, padding, 1px border |
+| `core/query-title` | Custom CSS for italic span styling |
+| `core/query-no-results` | Padding top: `spacing-30` |
 
-### core/post-date
-- Color: `contrast-2`, font size: small
-- Link: `contrast-2`, no underline, underline on hover
+### Captions
 
-### core/post-featured-image
-- Border radius: `spacing-20`
-
-### core/avatar
-- Border radius: 90px
+| Element | Key Styles |
+|---------|-----------|
+| Caption | Color: `contrast-2`, font: `body` family, 0.8rem |
