@@ -46,6 +46,10 @@ Delete all WordPress sample content:
 - Sample comment.
 - Pre-installed plugins that won't be used (Hello Dolly, etc.).
 
+### Search Engine Visibility
+
+Enable **"Discourage search engines from indexing this site"** (Settings > Reading) during the entire construction process. The site is not ready yet and must not be indexed. This will be reviewed before launch in Phase 13.
+
 ### Reading Settings
 
 Ask whether the homepage should be a static page or display the latest blog posts.
