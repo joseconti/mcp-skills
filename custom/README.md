@@ -9,7 +9,7 @@ This directory contains custom skills that are **not** synced from the upstream 
 - **themes/** — Theme configuration skills (see [themes/INDEX.md](themes/INDEX.md)):
   - **themes/wordpress-theme-customizer/** — General-purpose theme customizer (orchestrator for any theme — auto-detects type, checks for specific skill, offers standard or full scan)
   - **themes/avada/** — Avada configuration (classic theme — fusion_options: colors, header, footer, layout, blog, WooCommerce) — via `mcm/get-theme-options` / `mcm/set-theme-options`
-  - **themes/dt-the7/** — The7 configuration (classic theme — the7mk2: colors, header, footer, layout, blog, portfolio, buttons) — via `mcm/get-theme-options` / `mcm/set-theme-options`
+  - **themes/dt-the7/** — The7 configuration (classic theme — the7: colors, header, footer, layout, blog, portfolio, buttons) — via `mcm/get-theme-options` / `mcm/set-theme-options`
   - **themes/twentytwentyfive/** — Twenty Twenty-Five configuration (block/FSE — Global Styles: colors, fonts, layout, templates) — via `mcm/get-global-styles` / `mcm/set-global-styles`
   - **themes/twentytwentyfour/** — Twenty Twenty-Four configuration (block/FSE — Global Styles: colors, fonts, duotones, gradients, templates) — via `mcm/get-global-styles` / `mcm/set-global-styles`
   - **themes/twentytwentythree/** — Twenty Twenty-Three configuration (block/FSE — Global Styles: colors, fonts, style variations, templates) — via `mcm/get-global-styles` / `mcm/set-global-styles`

@@ -2,16 +2,16 @@
 
 The7 uses **two storage mechanisms** for configuration:
 
-1. **Theme options** (`the7mk2` in `wp_options`): All visual styling options. Read via `mcm/get-theme-options` and update via `mcm/set-theme-options` (auto-detects `the7mk2` for The7).
+1. **Theme options** (`the7` in `wp_options`): All visual styling options. Read via `mcm/get-theme-options` and update via `mcm/set-theme-options` (auto-detects `the7` for The7).
 2. **Theme mods** (`theme_mods_dt-the7` in `wp_options`): Logo and menu locations. Read via `mcm/get-theme-mod` and update via `mcm/set-theme-mod`.
 
-> **IMPORTANT**: The7 only stores options in `the7mk2` when they differ from defaults. A fresh install may have very few keys. All options listed below ARE available — they use built-in defaults until explicitly set.
+> **IMPORTANT**: The7 only stores options in `the7` when they differ from defaults. A fresh install may have very few keys. All options listed below ARE available — they use built-in defaults until explicitly set.
 
 ---
 
 ## Logo & Site Identity (Theme Mods + WP Options)
 
-**These are NOT stored in `the7mk2`.** They use WordPress standard APIs:
+**These are NOT stored in `the7`.** They use WordPress standard APIs:
 
 | Setting | Storage | How to Set | Value Type |
 |---------|---------|------------|------------|
@@ -38,7 +38,7 @@ The7 uses **two storage mechanisms** for configuration:
 
 ---
 
-## Branding Options (Theme Options in `the7mk2`)
+## Branding Options (Theme Options in `the7`)
 
 These control logo padding, favicon URLs, and logo variant selection per header mode:
 
@@ -1261,7 +1261,7 @@ Each `theme.json` includes:
 - **Custom templates**: Blank Page, Blank Page with Title
 - **Layout**: Content/wide size, spacing patterns
 
-> **Note**: FSE options are configured via theme.json and the Site Editor, not via `the7mk2` theme options. Use `mcm/get-global-styles` and `mcm/set-global-styles` for FSE variants.
+> **Note**: FSE options are configured via theme.json and the Site Editor, not via `the7` theme options. Use `mcm/get-global-styles` and `mcm/set-global-styles` for FSE variants.
 
 ---
 

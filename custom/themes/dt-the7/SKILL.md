@@ -1,6 +1,6 @@
 ---
 name: dt-the7
-description: "Use when configuring The7 WordPress theme (Dream-Theme). Provides all available options (colors, typography, header, footer, layout, blog, portfolio, buttons, page titles, mobile header, floating header, micro-widgets, stripes, social buttons, advanced settings) and procedures to apply them via MCP Content Manager abilities. Classic theme — theme options stored in wp_options as the7mk2. Logo uses WordPress custom_logo theme mod."
+description: "Use when configuring The7 WordPress theme (Dream-Theme). Provides all available options (colors, typography, header, footer, layout, blog, portfolio, buttons, page titles, mobile header, floating header, micro-widgets, stripes, social buttons, advanced settings) and procedures to apply them via MCP Content Manager abilities. Classic theme — theme options stored in wp_options as the7. Logo uses WordPress custom_logo theme mod."
 compatibility: "The7 14.2+. Requires WordPress 6.6+ and PHP 7.2+. Classic theme (NOT FSE)."
 ---
 
@@ -10,7 +10,7 @@ compatibility: "The7 14.2+. Requires WordPress 6.6+ and PHP 7.2+. Classic theme 
 
 **Classic theme (NOT Full Site Editing)**. Configuration is split between two storage mechanisms:
 
-1. **Theme options** (`the7mk2` in `wp_options`): Colors, typography, layout, footer, buttons, page titles, sidebar, blog, portfolio, image hovers, loading effects, contact form. Read/write via `mcm/get-theme-options` and `mcm/set-theme-options`.
+1. **Theme options** (`the7` in `wp_options`): Colors, typography, layout, footer, buttons, page titles, sidebar, blog, portfolio, image hovers, loading effects, contact form. Read/write via `mcm/get-theme-options` and `mcm/set-theme-options`.
 2. **Theme mods** (`theme_mods_dt-the7` in `wp_options`): Logo (`custom_logo`), navigation menu locations. Read/write via `mcm/get-theme-mod` and `mcm/set-theme-mod`.
 
 Does NOT use Global Styles or theme.json. Uses a custom Options Framework with `of_get_option()` accessor.
@@ -40,7 +40,7 @@ When configuring The7 from scratch, follow this exact order to avoid missing set
 
 1. **Site identity**: Set blog name, tagline, homepage, posts page
 2. **Logo (theme mod)**: Upload logo → set `custom_logo` via `mcm/set-theme-mod`
-3. **Favicon (theme option)**: Set favicon and retina favicon in `the7mk2`
+3. **Favicon (theme option)**: Set favicon and retina favicon in `the7`
 4. **Colors**: Set accent color mode FIRST, then accent color, then body/text/header colors
 5. **Typography**: Set body font, heading font, H1-H6 sizes
 6. **Layout**: Set site width, layout mode (wide/boxed), content margins
@@ -635,8 +635,8 @@ After configuring, verify each area:
 - **Logo not showing:** Check that `custom_logo` theme mod is set to a valid attachment ID (not a URL). Use `mcm/get-theme-mod {"key": "custom_logo"}` to verify. Common mistake: trying to set the logo via `mcm/set-theme-options` — logo is a theme mod, not a theme option.
 - **Colors not applying:** Verify `general-accent_color_mode` is set to `color` before setting `general-accent_bg_color`. If set to `gradient`, the hex color value is ignored.
 - **Changes not visible:** The MCP ability auto-clears The7's compiled CSS transients; clear browser cache if needed.
-- **Option not saving:** The `mcm/set-theme-options` ability reads the full `the7mk2` array before updating — it merges only the keys you specify.
-- **Few options in `the7mk2`:** This is normal — The7 only stores options that differ from defaults. A fresh install may have very few keys. All ~200 options from the reference file ARE available but use built-in defaults until explicitly set.
+- **Option not saving:** The `mcm/set-theme-options` ability reads the full `the7` array before updating — it merges only the keys you specify.
+- **Few options in `the7`:** This is normal — The7 only stores options that differ from defaults. A fresh install may have very few keys. All ~200 options from the reference file ARE available but use built-in defaults until explicitly set.
 - **Spacing options:** Use format `"50px 50px 50px 50px"` (top right bottom left).
 - **Footer layout:** Uses string format like `"1/4+1/4+1/4+1/4"` or `"1/3+1/3+1/3"`.
 - **Typography format:** Heading typography fields (`fonts-h1-typography` through `fonts-h6-typography`) require a structured array with `font_family`, `responsive_font_size` (object with `desktop` and optional `tablet` keys), `responsive_line_height`, and `text_transform`. Passing a simple string like `"44px"` will NOT work.
