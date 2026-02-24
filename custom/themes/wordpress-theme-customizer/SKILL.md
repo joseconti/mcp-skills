@@ -127,7 +127,7 @@ The standard scan uses existing MCP abilities to discover configuration without 
    ```json
    mcm/get-theme-options {}
    ```
-   This auto-detects the option key (e.g., `fusion_options` for Avada, `the7mk2` for The7) and returns all values.
+   This auto-detects the option key (e.g., `fusion_options` for Avada, `the7` for The7) and returns all values.
 
 2. **Theme mods** — Logo, header image, background, etc.:
    ```json

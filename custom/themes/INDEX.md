@@ -41,7 +41,7 @@ Configuration stored in **Global Styles** (`wp_global_styles` post type as JSON)
 
 Configuration stored in **wp_options** as serialized arrays:
 - **Avada**: option name `fusion_options`
-- **The7**: option name `the7mk2`
+- **The7**: option name `the7`
 - Managed via **`mcm/get-theme-options`** and **`mcm/set-theme-options`** MCP abilities
 
 See [global-styles-api.md](global-styles-api.md) Section 0 for the full comparison.

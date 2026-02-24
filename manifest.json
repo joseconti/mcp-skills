@@ -82,7 +82,7 @@
 		},
 		"theme-dt-the7": {
 			"context": "theme-config",
-			"description": "The7 theme configuration (Dream-Theme): colors, typography, header, footer, layout, blog, portfolio, buttons, page titles, sidebar. Classic theme — options stored as the7mk2 in wp_options.",
+			"description": "The7 theme configuration (Dream-Theme): colors, typography, header, footer, layout, blog, portfolio, buttons, page titles, sidebar. Classic theme — options stored as the7 in wp_options.",
 			"status": "active",
 			"path": "custom/themes/dt-the7"
 		},

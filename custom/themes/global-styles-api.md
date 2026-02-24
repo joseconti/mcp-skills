@@ -20,7 +20,7 @@ Call `mcm/theme-config-guide` — it auto-detects and returns the theme type (bl
 | Navigation menus | `wp_terms` + `wp_posts` (nav_menu_item) | `mcm/get-menus` / `mcm/update-menu` |
 | Header/Background image | `wp_options` → `theme_mods_{slug}` | `mcm/get-theme-mod` / `mcm/set-theme-mod` |
 | Site identity | `wp_options` → `blogname`, `blogdescription`, `site_icon` | `mcm/set-option` |
-| Theme-specific options | `wp_options` → custom keys (e.g., `fusion_options`, `the7mk2`) | `mcm/get-theme-options` / `mcm/set-theme-options` |
+| Theme-specific options | `wp_options` → custom keys (e.g., `fusion_options`, `the7`) | `mcm/get-theme-options` / `mcm/set-theme-options` |
 
 **Example: configure a classic theme**
 
