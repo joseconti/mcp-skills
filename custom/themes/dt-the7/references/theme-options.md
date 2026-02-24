@@ -87,6 +87,8 @@ The `-choose_logo` radio options control which logo each header variant uses:
 | `general-switch_content_paddings` | number | `778` | Mobile padding breakpoint |
 | `general-page_content_mobile_margin` | spacing | `50px 20px 50px 20px` | Mobile content margin |
 | `general-border_radius` | number | `8` | Global border radius (px) |
+| `general-boxed_bg_fixed` | checkbox | `0` | Fixed background for boxed layout |
+| `general-boxed_bg_fullscreen` | checkbox | `0` | Fullscreen background for boxed layout |
 
 ---
 
@@ -292,6 +294,322 @@ Global header styling options (independent of layout type):
 | `header-menu-hover-font-color-style` | radio | `accent` | Menu hover color mode: `accent`, `color`, `gradient` |
 | `header-menu-hover-font-color` | color | `#ffffff` | Menu hover color (when style = `color`) |
 | `header-menu-hover-font-gradient` | gradient | — | Menu hover gradient (when style = `gradient`) |
+| `header-menu-active-font-color-style` | radio | `accent` | Active item color mode: `accent`, `color`, `gradient` |
+| `header-menu-active-font-color` | color | `#ffffff` | Active item color (when style = `color`) |
+| `header-menu-active-font-gradient` | gradient | — | Active item gradient (when style = `gradient`) |
+
+### Classic Menu Background
+
+When `header-layout` = `classic`, the menu bar area can have its own styling:
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-classic-menu-bg-style` | images | `disabled` | Menu bar background: `disabled`, `content_line`, `fullwidth_line`, `solid` |
+| `header-classic-menu-bg-color` | alpha_color | `#ffffff` | Menu bar background/line color (when bg-style != `disabled`) |
+| `header-classic-menu-line_size` | number | `1px` | Menu bar line height (when bg-style = `content_line` or `fullwidth_line`) |
+
+### Mixed Header (Top Line / Side Line)
+
+When `header-layout` = `top_line` or `side_line`, the top bar area has mixed styling:
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-mixed-bg-color` | alpha_color | `#000000` | Mixed area background color |
+| `header-mixed-decoration` | radio | `shadow` | Decoration: `disabled`, `shadow`, `content-width-line`, `line` |
+| `header-mixed-decoration-color` | alpha_color | `#ffffff` | Line color (when decoration = `content-width-line` or `line`) |
+| `header-mixed-decoration_size` | number | `1px` | Line height |
+| `layout-top_line-is_sticky` | images | `0` | Floating top line: `0` (disabled), `1` (enabled) |
+| `header-mixed-sticky-bg-color` | alpha_color | `#000000` | Floating top line bg color (when sticky enabled) |
+| `header-mixed-floating-top-bar` | checkbox | `0` | Float top bar too (when sticky enabled) |
+
+### Per-Layout Detailed Options
+
+Each header layout has its own specific options:
+
+**Classic** (`header-layout` = `classic`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-classic-height` | number | `140px` | Header height |
+| `header-classic-side-padding` | spacing | `30px 30px` | Left/right padding |
+| `header-classic-switch_paddings` | number | `0px` | Mobile padding breakpoint |
+| `header-classic_mobile_paddings` | spacing | `0px 0px` | Mobile paddings |
+| `header-classic-menu-position` | images | `left` | Menu position: `left`, `center`, `justify` |
+| `header-classic-menu-margin` | spacing | `0px 0px` | Menu top/bottom margin |
+| `header-classic-logo-position` | images | `left` | Logo position: `left`, `center` |
+| `header-classic-is_fullwidth` | images | `0` | Full-width header |
+
+**Inline** (`header-layout` = `inline`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-inline-height` | number | `140px` | Header height |
+| `header-inline-side-padding` | spacing | `30px 30px` | Left/right padding |
+| `header-inline-switch_paddings` | number | `0px` | Mobile padding breakpoint |
+| `header-inline_mobile_paddings` | spacing | `0px 0px` | Mobile paddings |
+| `header-inline-menu-position` | images | `right` | Menu position: `left`, `right`, `center`, `justify` |
+| `header-inline-is_fullwidth` | images | `0` | Full-width header |
+
+**Split** (`header-layout` = `split`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-split-height` | number | `100px` | Header height |
+| `header-split-side-padding` | spacing | `30px 30px` | Left/right padding |
+| `header-split-switch_paddings` | number | `0px` | Mobile padding breakpoint |
+| `header-split_mobile_paddings` | spacing | `0px 0px` | Mobile paddings |
+| `header-split-menu-position` | images | `inside` | Menu position: `justify`, `inside`, `fully_inside`, `outside` |
+| `header-split-is_fullwidth` | images | `0` | Full-width header |
+
+**Side** (`header-layout` = `side`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-side-width` | number | `300px` | Side header width |
+| `header-side-position` | images | `left` | Position: `left`, `right` |
+| `header-side-content-padding` | spacing | `0px 0px 0px 0px` | Navigation area padding |
+
+**Top Line** (`header-layout` = `top_line`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `layout-top_line-height` | number | `130px` | Top line height |
+| `header-top_line-side-padding` | spacing | `30px 30px` | Top line left/right padding |
+| `header-top_line-switch_paddings` | number | `0px` | Mobile padding breakpoint |
+| `header-top_line_mobile_paddings` | spacing | `0px 0px` | Mobile paddings |
+| `layout-top_line-logo-position` | images | `left` | Logo position: `left_btn-right_logo`, `left_btn-center_logo`, `left`, `center` |
+| `layout-top_line-is_fullwidth` | images | `0` | Full-width top line |
+
+**Side Line** (`header-layout` = `side_line`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-side_line-width` | number | `60px` | Side line width |
+
+**Menu Icon** (`header-layout` = `menu_icon`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `layout-menu_icon-position` | images | `menu_icon_right` | Position: `menu_icon_left`, `menu_icon_right` |
+| `layout-menu_icon-show_floating_logo` | images | `1` | Show floating logo: `0`, `1` |
+| `header-slide_out-width` | number | `300px` | Navigation area width |
+| `header-slide_out-position` | images | `left` | Slide-out position: `left`, `right` |
+| `header-slide_out-content-padding` | spacing | `0px 0px 0px 0px` | Navigation area padding |
+| `header-slide_out-overlay-animation` | images | `fade` | Animation: `fade`, `slide` |
+| `header_navigation` | images | `slide_out` | Navigation type: `slide_out`, `overlay` |
+| `header-overlay-content-padding` | spacing | `0px 0px 0px 0px` | Overlay navigation padding |
+
+### Menu Decoration
+
+Controls how menu items are visually highlighted on hover/active. Only applies to horizontal headers (classic, inline, split, top_line).
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-decoration-style` | images | `none` | Decoration type: `none`, `underline`, `other` |
+
+**Underline decoration** (when style = `underline`):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-decoration-underline-direction` | images | `left_to_right` | Animation: `left_to_right`, `from_center`, `upwards`, `downwards` |
+| `header-menu-decoration-underline-color-style` | radio | `accent` | Color mode: `accent`, `color`, `gradient` |
+| `header-menu-decoration-underline-color` | color | `#ffffff` | Underline color (when mode = `color`) |
+| `header-menu-decoration-underline-gradient` | gradient_picker | — | Underline gradient (when mode = `gradient`) |
+| `header-menu-decoration-underline-line_size` | number | `2px` | Underline thickness |
+
+**Other decoration** (when style = `other`) — background/outline on hover:
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-decoration-other-hover-style` | images | `outline` | Hover effect: `outline`, `background` |
+| `header-menu-decoration-other-hover-color-style` | radio | `accent` | Hover color mode: `accent`, `color`, `gradient` |
+| `header-menu-decoration-other-hover-color` | alpha_color | `#ffffff` | Hover color |
+| `header-menu-decoration-other-hover-gradient` | gradient_picker | — | Hover gradient |
+| `header-menu-decoration-other-opacity` | slider | `100` | Hover opacity (when mode = `accent`) |
+| `header-menu-decoration-other-hover-line` | images | `0` | Add hover line: `0`, `1` |
+| `header-menu-decoration-other-hover-line-color-style` | radio | `accent` | Hover line color mode |
+| `header-menu-decoration-other-hover-line-color` | alpha_color | `#ffffff` | Hover line color |
+| `header-menu-decoration-other-hover-line-gradient` | gradient_picker | — | Hover line gradient |
+| `header-menu-decoration-other-hover-line-opacity` | slider | `100` | Hover line opacity |
+| `header-menu-decoration-other-active-style` | images | `outline` | Active effect: `outline`, `background` |
+| `header-menu-decoration-other-active-color-style` | radio | `accent` | Active color mode: `accent`, `color`, `gradient` |
+| `header-menu-decoration-other-active-color` | alpha_color | `#ffffff` | Active color |
+| `header-menu-decoration-other-active-gradient` | gradient_picker | — | Active gradient |
+| `header-menu-decoration-other-active-opacity` | slider | `100` | Active opacity |
+| `header-menu-decoration-other-active-line` | images | `0` | Add active line: `0`, `1` |
+| `header-menu-decoration-other-active-line-color-style` | radio | `accent` | Active line color mode |
+| `header-menu-decoration-other-active-line-color` | alpha_color | `#ffffff` | Active line color |
+| `header-menu-decoration-other-active-line-gradient` | gradient_picker | — | Active line gradient |
+| `header-menu-decoration-other-active-line-opacity` | slider | `100` | Active line opacity |
+| `header-menu-decoration-other-border-radius` | slider | `0` | Decoration border radius (0–120) |
+| `header-menu-decoration-other-line_size` | number | `2px` | Decoration line thickness |
+| `header-menu-decoration-other-links-is_justified` | images | `0` | Full-height & full-width links: `0`, `1` |
+
+### Menu Dividers
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-show_dividers` | images | `0` | Enable menu dividers: `0`, `1` |
+| `header-menu-dividers-height-style` | images | `full` | Divider height: `full` (full height), `custom` |
+| `header-menu-dividers-height` | number | `20px` | Custom divider height (when height-style = `custom`) |
+| `header-menu-dividers-width` | number | `1px` | Divider thickness |
+| `header-menu-dividers-surround` | images | `0` | First & last dividers: `0`, `1` |
+| `header-menu-dividers-color` | alpha_color | `rgba(153,153,153,0.3)` | Dividers color |
+
+### Menu Item Spacing
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-item-surround_margins-style` | images | `regular` | Side margin for first/last items: `regular`, `double`, `custom`, `disabled` |
+| `header-menu-item-surround_margins-custom-margin` | number | `0px` | Custom margin (when style = `custom`) |
+
+### Hamburger Menu Icon
+
+Applies when navigation uses a hamburger/menu icon (side, side_line, menu_icon layouts, or triggered via overlay/slide-out):
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu_icon-size` | images | `small` | Icon preset: `small`, `medium`, `large`, `type_1`–`type_10`, `h_dots` |
+| `header-menu_icon-caption` | radio | `disabled` | Caption position: `disabled`, `left`, `right` |
+| `header-menu_icon-caption-text` | text | `Menu` | Caption text |
+| `header-menu_icon-caption-typography` | typography | Arial 16 none | Caption font (family, size, transform) |
+| `header-menu_icon-caption_gap` | number | `10px` | Gap between icon and caption |
+| `header-menu_icon-bg-border-width` | number | `0px` | Icon area border width |
+| `header-menu_icon-bg-border-radius` | number | `0px` | Icon area border radius |
+| `header-menu_icon-caption-padding` | spacing | `5px 10px 5px 10px` | Icon area padding |
+| `header-menu_icon-margin` | spacing | `0px 0px 0px 0px` | Icon area margin |
+
+**Normal state:**
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu_icon-color` | color | `#ffffff` | Icon color (empty = accent) |
+| `header-menu_icon-caption_color` | color | `#ffffff` | Caption font color (empty = accent) |
+| `header-menu_icon-bg` | radio | `enabled` | Background: `disabled`, `enabled` |
+| `header-menu_icon-bg-color` | alpha_color | — | Background color (empty = accent) |
+| `header-menu_icon-border` | radio | `enabled` | Border: `disabled`, `enabled` |
+| `header-menu_icon-border-color` | alpha_color | — | Border color (empty = accent) |
+
+**Hover state:**
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu_icon-color-hover` | color | `#ffffff` | Hover icon color |
+| `header-menu_icon-caption_color-hover` | color | `#ffffff` | Hover caption color |
+| `header-menu_icon-bg-hover` | radio | `enabled` | Hover background: `disabled`, `enabled` |
+| `header-menu_icon-bg-color-hover` | alpha_color | — | Hover background color |
+| `header-menu_icon-border-hover` | radio | `enabled` | Hover border: `disabled`, `enabled` |
+| `header-menu_icon-border-hover-color` | alpha_color | — | Hover border color |
+
+### Close Menu Button
+
+Appears when slide-out/overlay navigation is open:
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-close_icon-position` | radio | `outside` | Position: `left`, `center`, `right`, `outside` |
+| `header-menu-close_icon-size` | images | `fade_medium` | Icon style: `minus-medium`, `fade_medium`, `rotate_medium`, `fade_big`, `fade_thin`, `fade_small`, `v_dots`, `h_dots`, `scale_dot` |
+| `header-menu-close_icon-caption` | radio | `disabled` | Caption: `disabled`, `left`, `right` |
+| `header-menu-close_icon-caption-text` | text | `Navigation` | Caption text |
+| `header-menu-close_icon-caption-typography` | typography | Arial 16 uppercase | Caption font |
+| `header-menu-close_icon-caption_gap` | number | `20px` | Gap between icon and caption |
+| `header-menu_close_icon-bg-border-width` | number | `0px` | Border width |
+| `header-menu_close_icon-bg-border-radius` | number | `0px` | Border radius |
+| `header-menu_close_icon-padding` | spacing | `15px 15px 15px 15px` | Padding |
+| `header-menu_close_icon-margin` | spacing | `0px 0px 0px 0px` | Margin |
+
+**Normal state:**
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu_close_icon-color` | color | `#ffffff` | Icon color |
+| `header-menu_close_icon-caption_color` | color | `#ffffff` | Caption color |
+| `header-menu_close_icon-bg` | radio | `enabled` | Background: `disabled`, `enabled` |
+| `header-menu_close_icon-bg-color` | alpha_color | — | Background color |
+| `header-menu_close_icon-border` | radio | `enabled` | Border: `disabled`, `enabled` |
+| `header-menu_close_icon-border-color` | alpha_color | — | Border color |
+
+**Hover state:**
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu_close_icon-hover-color` | color | `#ffffff` | Hover icon color |
+| `header-menu_close_icon-caption_color-hover` | color | `#ffffff` | Hover caption color |
+| `header-menu_close_icon-bg-hover` | radio | `enabled` | Hover background: `disabled`, `enabled` |
+| `header-menu_icon-hover-bg-color` | alpha_color | — | Hover background color |
+| `header-menu_close_icon-border-hover` | radio | `enabled` | Hover border: `disabled`, `enabled` |
+| `header-menu_close_icon-border-color-hover` | alpha_color | — | Hover border color |
+
+### Website Overlay on Navigation Opening
+
+When slide-out or overlay navigation opens, the rest of the page can be dimmed:
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-slide_out-overlay-bg-color-style` | radio | `accent` | Overlay color mode: `accent`, `color`, `gradient` |
+| `header-slide_out-overlay-bg-color` | alpha_color | `#ffffff` | Overlay color (when mode = `color`) |
+| `header-slide_out-overlay-bg-gradient` | gradient_picker | — | Overlay gradient (when mode = `gradient`) |
+| `header-slide_out-overlay-bg-opacity` | slider | `50` | Overlay opacity (when mode = `accent`) |
+
+### Submenu Styling
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-side-menu-submenu-position` | images | `side` | Submenu display for side/overlay: `side`, `down` |
+| `header-menu-submenu-bg-color` | alpha_color | `rgba(255,255,255,0.3)` | Submenu & mega menu background color |
+| `header-menu-submenu-bg-width` | number | `240` | Submenu background width (px, min 100) |
+| `header-menu-submenu-bg-padding` | spacing | `10px 10px 10px 10px` | Submenu background padding |
+| `header-menu-submenu-typography` | typography | Arial 16 none | Submenu font (family, size, transform) |
+| `header-menu-submenu-icon-size` | slider | `14` | Submenu icon size (8–50) |
+| `header-menu-submenu-show_next_lvl_icons` | checkbox | `1` | Show next-level indicator arrows |
+| `header-menu-submenu-subtitle-typography` | typography | Arial 10 | Subtitle font below submenu items |
+| `header-menu-submenu-font-color` | color | `#ffffff` | Submenu normal font color |
+| `header-menu-submenu-hover-font-color-style` | radio | `accent` | Hover mode: `accent`, `color`, `gradient` |
+| `header-menu-submenu-hover-font-color` | color | `#ffffff` | Hover color |
+| `header-menu-submenu-hover-font-gradient` | gradient_picker | — | Hover gradient |
+| `header-menu-submenu-active-font-color-style` | radio | `accent` | Active mode: `accent`, `color`, `gradient` |
+| `header-menu-submenu-active-font-color` | color | `#ffffff` | Active color |
+| `header-menu-submenu-active-font-gradient` | gradient_picker | — | Active gradient |
+| `header-menu-submenu-item-padding` | spacing | `5px 10px 5px 10px` | Submenu item padding |
+| `header-menu-submenu-item-margin` | spacing | `0px 0px 0px 0px` | Submenu item margin |
+
+**Submenu item hover/active background:**
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-menu-submenu-bg-hover` | images | `none` | Item background on hover: `none`, `background` |
+| `header-menu-submenu-hover-bg-color-style` | radio | `accent` | Hover bg color mode: `accent`, `color`, `gradient` |
+| `header-menu-submenu-hover-bg-opacity` | slider | `7` | Hover bg opacity (when mode = `accent`) |
+| `header-menu-submenu-hover-bg-color` | alpha_color | `#ffffff` | Hover bg color |
+| `header-menu-submenu-hover-bg-gradient` | gradient_picker | — | Hover bg gradient |
+| `header-menu-submenu-active-bg-color-style` | radio | `accent` | Active bg color mode: `accent`, `color`, `gradient` |
+| `header-menu-submenu-active-bg-opacity` | slider | `7` | Active bg opacity |
+| `header-menu-submenu-active-bg-color` | alpha_color | `#ffffff` | Active bg color |
+| `header-menu-submenu-active-bg-gradient` | gradient_picker | — | Active bg gradient |
+
+### Mega Menu
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-mega-menu-submenu-bg-padding` | spacing | `0px 10px 0px 10px` | Mega menu background padding |
+| `header-mega-menu-submenu-column-padding` | spacing | `20px 10px 20px 10px` | Column padding |
+| `header-mega-menu-items-padding` | spacing | `0px 0px 10px 0px` | Items padding |
+| `header-mega-menu-submenu-column-width` | number | `240px` | Column width (min 100) |
+| `header-mega-menu-submenu-2-level-spacing` | number | `0px` | Distance between 2nd and 3rd levels |
+| `header-mega-menu-title-typography` | typography | Arial:700 18 none | Mega menu title font |
+| `header-mega-menu-title-icon-size` | slider | `18` | Title icon size (8–50) |
+| `header-mega-menu-title-font-color` | color | `#333333` | Title normal color |
+| `header-mega-menu-title-hover-font-color-style` | radio | `accent` | Title hover mode: `accent`, `color`, `gradient` |
+| `header-mega-menu-title-hover-font-color` | color | `#ffffff` | Title hover color |
+| `header-mega-menu-title-hover-font-gradient` | gradient_picker | — | Title hover gradient |
+| `header-mega-menu-title-active_item-font-color-style` | radio | `accent` | Title active mode: `accent`, `color`, `gradient` |
+| `header-mega-menu-title-active_item-font-color` | color | `#ffffff` | Title active color |
+| `header-mega-menu-title-active_item-font-gradient` | gradient_picker | — | Title active gradient |
+| `header-mega-menu-desc-typography` | typography | Arial:700 13 | Description font below mega menu items |
+| `header-mega-menu-desc-font-color` | color | `#333333` | Description font color |
+| `header-mega-menu-widget-title-color` | color | `#333333` | Widget titles color inside mega menu |
+| `header-mega-menu-widget-font-color` | color | `#333333` | Widget text color inside mega menu |
+| `header-mega-menu-widget-accent-color` | color | — | Widget accent color (empty = default accent) |
 
 ---
 
@@ -334,6 +652,7 @@ Global header styling options (independent of layout type):
 | `bottom_bar-text` | textarea | — | Bottom bar custom text |
 | `bottom_bar-copyrights` | textarea | — | Copyright text |
 | `bottom_bar-credits` | checkbox | `1` | Show theme credits |
+| `bottom_bar-menu-collapse_after` | number | `990px` | Bottom bar menu collapse breakpoint |
 | `bottom_bar-logo-padding` | spacing | `0px` all | Bottom bar logo padding |
 
 ### Footer Setup Example
@@ -456,6 +775,7 @@ mcm/set-theme-options {
 | `buttons-border-color` | alpha_color | `#ffffff` | Border color |
 | `buttons-hover-border-color_mode` | radio | `accent` | Hover border mode |
 | `buttons-hover-border-color` | alpha_color | `#ffffff` | Hover border color |
+| `buttons-hover_color_gradient` | gradient | — | Hover gradient (when hover mode = `gradient`) |
 | `button-shadow` | shadow | — | Button shadow |
 | `button-shadow-hover` | shadow | — | Button hover shadow |
 
@@ -580,6 +900,43 @@ mcm/set-theme-options {
 | `header-mobile-second_switch-height` | number | `100` | Header height at phone breakpoint (px) |
 | `header-mobile-second_switch-layout` | images | `left_right` | Phone layout: `left_right`, `left_center`, `right_left`, `right_center` |
 
+### Mobile Header Appearance
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-mobile-header-bg-color` | alpha_color | `#ffffff` | Mobile header background color |
+| `header-mobile-decoration` | images | `shadow` | Decoration: `disabled`, `shadow`, `content-width-line`, `line` |
+| `header-mobile-decoration-color` | alpha_color | `#ffffff` | Decoration line color |
+| `header-mobile-decoration-line_size` | number | `1px` | Decoration line height |
+| `header-mobile-floating_navigation` | images | `menu_icon` | Floating mobile header: `disabled`, `sticky`, `menu_icon` |
+| `header-mobile-floating-bg-color` | alpha_color | `#fff` | Floating mobile header bg color |
+
+### Mobile Hamburger Icon
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `header-mobile-menu_icon-size` | images | `small` | Icon preset: `small`, `medium`, `large`, `type_1`–`type_10`, `h_dots` |
+| `header-mobile-menu_icon-caption` | radio | `disabled` | Caption: `disabled`, `left`, `right` |
+| `header-mobile-menu_icon-caption-text` | text | `Menu` | Caption text |
+| `header-mobile-menu_icon-caption-typography` | typography | Arial 16 none | Caption font |
+| `header-mobile-menu_icon-caption_gap` | number | `10px` | Gap between icon and caption |
+| `header-mobile-menu_icon-bg-border-width` | number | `0px` | Border width |
+| `header-mobile-menu_icon-bg-border-radius` | number | `0px` | Border radius |
+| `header-mobile-menu_icon-caption-padding` | spacing | `5px 10px 5px 10px` | Padding |
+| `header-mobile-menu_icon-margin` | spacing | `0px 0px 0px 0px` | Margin |
+| `header-mobile-menu_icon-color` | color | `#fff` | Icon color (normal) |
+| `header-mobile-menu_icon-caption_color` | color | `#fff` | Caption color (normal) |
+| `header-mobile-menu_icon-bg-enable` | radio | `1` | Background: `0` (disabled), `1` (enabled) |
+| `header-mobile-menu_icon-bg-color` | alpha_color | — | Background color |
+| `header-mobile-menu_icon-border` | radio | `disabled` | Border: `disabled`, `enabled` |
+| `header-mobile-menu_icon-border-color` | alpha_color | — | Border color |
+| `header-mobile-menu_icon-color-hover` | color | `#fff` | Icon color (hover) |
+| `header-mobile-menu_icon-caption_color-hover` | color | `#fff` | Caption color (hover) |
+| `header-mobile-menu_icon-bg-hover` | radio | `1` | Hover background: `0`, `1` |
+| `header-mobile-menu_icon-bg-color-hover` | alpha_color | — | Hover background color |
+| `header-mobile-menu_icon-border-hover` | radio | `disabled` | Hover border: `disabled`, `enabled` |
+| `header-mobile-menu_icon-border-hover-color` | alpha_color | — | Hover border color |
+
 ### Mobile Menu
 
 | Option ID | Type | Default | Description |
@@ -606,6 +963,20 @@ mcm/set-theme-options {
 | `header-mobile-menu-close_icon-caption_gap` | number | `10px` | Gap between icon and caption |
 | `header-mobile-menu_close_icon-bg-border-width` | number | `0px` | Close button border width |
 | `header-mobile-menu_close_icon-bg-border-radius` | number | `0px` | Close button border radius |
+| `header-mobile-menu_close_icon-padding` | spacing | `5px 5px 5px 5px` | Close button padding |
+| `header-mobile-menu_close_icon-margin` | spacing | `15px 0px 0px 0px` | Close button margin |
+| `header-mobile-menu_close_icon-color` | color | `#fff` | Close icon color (normal) |
+| `header-mobile-menu_close-caption_color` | color | `#fff` | Close caption color (normal) |
+| `header-mobile-menu_close_icon-bg` | radio | `enabled` | Close button background: `disabled`, `enabled` |
+| `header-mobile-menu_close_icon-bg-color` | alpha_color | — | Close button bg color |
+| `header-mobile-menu_close_icon-border` | radio | `disabled` | Close button border: `disabled`, `enabled` |
+| `header-mobile-menu_close_icon-border-color` | alpha_color | — | Close button border color |
+| `header-mobile-menu_close_icon-hover-color` | color | `#fff` | Close icon color (hover) |
+| `header-mobile-menu_close-caption_color-hover` | color | `#fff` | Close caption color (hover) |
+| `header-mobile-menu_close_icon-bg-hover` | radio | `enabled` | Close hover background: `disabled`, `enabled` |
+| `header-mobile-menu_icon-hover-bg-color` | alpha_color | — | Close hover bg color |
+| `header-mobile-menu_close_icon-border-hover` | radio | `disabled` | Close hover border: `disabled`, `enabled` |
+| `header-mobile-menu_close_icon-border-color-hover` | alpha_color | — | Close hover border color |
 
 ---
 
@@ -619,6 +990,23 @@ mcm/set-theme-options {
 | `header-floating_navigation-bg-image` | background_img | — | Floating header background image |
 | `header-floating_navigation-bg-is_fullscreen` | checkbox | `0` | Fullscreen floating header background |
 | `header-floating_navigation-decoration` | images | `disabled` | Decoration: `disabled`, `shadow`, `content-width-line`, `line` |
+| `header-floating_navigation-decoration-color` | alpha_color | `#ffffff` | Decoration line color |
+| `header-floating_navigation-decoration-line_size` | number | `1px` | Decoration line height |
+| `header-floating_navigation-style` | images | `fade` | Floating effect: `fade`, `slide`, `sticky` |
+| `header-floating_navigation-show_after` | number | `150px` | Show after scrolling this distance |
+| `header-floating_navigation-font-normal` | radio | `default` | Normal font mode: `default`, `color` |
+| `header-floating_navigation-font-color` | color | `#ffffff` | Normal font color (when mode = `color`) |
+| `header-floating_navigation-font-hover` | radio | `default` | Hover font mode: `default`, `accent`, `color`, `gradient` |
+| `header-floating_navigation-hover-font-color` | color | `#ffffff` | Hover font color |
+| `header-floating_navigation-hover-font-gradient` | gradient_picker | — | Hover font gradient |
+| `header-floating_navigation-font-active` | radio | `default` | Active font mode: `default`, `accent`, `color`, `gradient` |
+| `header-floating_navigation-active_item-font-color` | color | `#ffffff` | Active font color |
+| `header-floating_navigation-active_item-font-gradient` | gradient_picker | — | Active font gradient |
+| `header-floating_microwidgets-font` | radio | `default` | Micro-widget font mode: `default`, `color` |
+| `header-floating_microwidgets-font-color` | color | `#ffffff` | Micro-widget font color |
+| `header-floating_microwidgets-icon` | radio | `default` | Micro-widget icon mode: `default`, `color` |
+| `header-floating_microwidgets-icon-color` | color | `#ffffff` | Micro-widget icon color |
+| `header-floating_navigation-top-bar` | checkbox | `0` | Include floating top bar |
 | `header-style-floating-choose_logo` | radio | `custom` | Floating header logo: `custom`, `main`, `none` |
 | `header-style-floating-logo-padding` | spacing | `0px` all | Floating logo padding |
 | `header-floating-mobile-first_switch-logo` | radio | `desktop` | Floating mobile 1st breakpoint: `desktop`, `mobile` |
@@ -639,6 +1027,14 @@ mcm/set-theme-options {
 | `top_bar-bg-image` | background_img | — | Top bar background image |
 | `top_bar-bg-style` | images | `content_line` | Top bar decoration: `disabled`, `content_line`, `full_width` |
 | `top-bar-transparent_bg_color` | alpha_color | `rgba(0,0,0,0.5)` | Transparent top bar background color |
+| `top_bar-typography` | typography | Arial 16 none | Top bar micro-widget font |
+| `top_bar-font-color` | color | `#686868` | Top bar font color |
+| `top_bar-custom-icon-size` | slider | `16` | Top bar icon size (9–120) |
+| `top_bar-custom-icon-color` | alpha_color | — | Top bar icon color (empty = use font color) |
+| `top_bar-line-color` | alpha_color | `#ffffff` | Top bar line color (when bg-style = line) |
+| `top_bar-line_size` | number | `1px` | Top bar line height |
+| `top_bar-line_style` | select | `solid` | Top bar line style: `solid`, `dotted`, `dashed`, `double` |
+| `top_bar-line-in-transparent-header` | checkbox | `1` | Show line in transparent headers |
 
 ---
 
@@ -657,16 +1053,25 @@ The7 supports 7 micro-widget types that can be placed in various header position
 | `header-classic-elements-near_logo_right-padding` | spacing | `0px 0px 0px 0px` | Right logo area padding |
 | `header-inline-show_elements` | images | `0` | Enable for inline header |
 | `header-inline-elements` | sortable | — | Micro-widgets layout for inline header |
+| `header-inline-elements-near_menu_right-padding` | spacing | `0px` all | Inline: navigation area padding |
 | `header-split-show_elements` | images | `0` | Enable for split header |
 | `header-split-elements` | sortable | — | Micro-widgets layout for split header |
+| `header-split-elements-near_menu_left-padding` | spacing | `0px` all | Split: left area padding |
+| `header-split-elements-near_menu_right-padding` | spacing | `0px` all | Split: right area padding |
 | `header-side-show_elements` | images | `0` | Enable for side header |
 | `header-side-elements` | sortable | — | Micro-widgets layout for side header |
+| `header-side-elements-below_menu-padding` | spacing | `0px` all | Side: below-menu area padding |
 | `header-top_line-show_elements` | images | `0` | Enable for top-line header |
 | `header-top_line-elements` | sortable | — | Micro-widgets layout for top-line header |
+| `header-top_line-elements-top_line-padding` | spacing | `0px` all | Top line: left area padding |
+| `header-top_line-elements-top_line_right-padding` | spacing | `0px` all | Top line: right area padding |
+| `header-top_line-elements-below_menu-padding` | spacing | `0px` all | Top line: below-menu area padding |
 | `header-side_line-show_elements` | images | `0` | Enable for side-line header |
 | `header-side_line-elements` | sortable | — | Micro-widgets layout for side-line header |
+| `header-side_line-elements-below_menu-padding` | spacing | `0px` all | Side line: below-menu area padding |
 | `header-menu_icon-show_elements` | images | `0` | Enable for menu icon header |
 | `header-menu_icon-elements` | sortable | — | Micro-widgets layout for menu icon header |
+| `header-menu_icon-elements-below_menu-padding` | spacing | `0px` all | Menu icon: below-menu area padding |
 
 ### Social Icons Widget
 
@@ -681,6 +1086,14 @@ The7 supports 7 micro-widget types that can be placed in various header position
 | `header-elements-soc_icons-bg` | radio | `accent` | Background mode: `disabled`, `accent`, `color`, `gradient` |
 | `header-elements-soc_icons-bg-color` | alpha_color | `#ffffff` | Custom bg color (when mode=`color`) |
 | `header-elements-soc_icons-bg-gradient` | gradient | — | Custom bg gradient (when mode=`gradient`) |
+| `header-elements-soc_icons-border-color` | alpha_color | `#ffffff` | Border color |
+| `header-elements-soc_icons-hover-color` | alpha_color | `#fff` | Icons hover color |
+| `header-elements-soc_icons-hover-bg` | radio | `accent` | Hover bg mode: `disabled`, `accent`, `color`, `gradient` |
+| `header-elements-soc_icons-hover-bg-color` | alpha_color | `#ffffff` | Hover bg color |
+| `header-elements-soc_icons-hover-bg-gradient` | gradient_picker | — | Hover bg gradient |
+| `header-elements-soc_icons-hover-border` | radio | `disabled` | Hover border mode: `disabled`, `accent`, `color` |
+| `header-elements-soc_icons-hover-border-color` | alpha_color | `#ffffff` | Hover border color |
+| `header-elements-soc_icons` | fields_generator | — | Social icons array (icon + URL pairs) |
 
 ### Menu Widgets (2 instances)
 
@@ -722,6 +1135,42 @@ The7 supports 7 micro-widget types that can be placed in various header position
 | `microwidgets-search_style` | select | `popup` | Search style: `classic`, `animate_width`, `popup`, `overlay` |
 | `header-elements-search-icon` | select | `custom` | Search icon: `disabled`, `custom` |
 | `header-elements-search_custom-icon` | icons_picker | `the7-mw-icon-search` | Custom search icon |
+| `header-elements-search-caption` | text | `Search` | Search caption text |
+| `header-elements-search-input-caption` | text | `Type and hit enter …` | Search input placeholder |
+| `header-elements-search-by` | radio | `general` | Search scope: `general`, `products` (WooCommerce) |
+| `microwidgets-search-typography` | typography | Arial 14 | Search input font |
+| `microwidgets-search_icon` | select | `custom` | Icon inside search input: `disabled`, `custom` |
+| `microwidgets-search_custom-icon` | icons_picker | `the7-mw-icon-search` | Custom icon for input |
+| `microwidgets-search_font-color` | color | `#aaaaaa` | Search input font & icon color |
+| `microwidgets-search_icon-size` | slider | `16` | Search input icon size (9–120) |
+| `microwidgets-search-height` | number | `34px` | Search input background height |
+| `microwidgets-search-width` | number | `200px` | Search input background width |
+| `microwidgets-search-active-width` | number | `200px` | Width on click/focus |
+| `microwidgets-search_bg-color` | alpha_color | `#f4f4f4` | Search background color |
+| `microwidgets-search_bg_border_radius` | number | `0px` | Search border radius |
+| `microwidgets-search_bg_border_width` | number | `0px` | Search border width |
+| `microwidgets-search_bg-border-color` | alpha_color | `#e2e2e2` | Search border color |
+| `microwidgets-search_input-padding` | spacing | `12px 12px` | Search input padding (right, left) |
+| `microwidgets-search_overlay-bg` | radio | `color` | Overlay search bg mode: `color`, `gradient` |
+| `microwidgets-search_overlay-bg-color` | alpha_color | `rgba(0,0,0,0.9)` | Overlay search bg color |
+| `microwidgets-search_overlay-bg-gradient` | gradient_picker | — | Overlay search bg gradient |
+
+### Micro-widget Typography (per context)
+
+| Option ID | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `top_bar-typography` | typography | Arial 16 none | Top bar micro-widget font |
+| `top_bar-font-color` | color | `#686868` | Top bar font color |
+| `top_bar-custom-icon-size` | slider | `16` | Top bar icon size |
+| `top_bar-custom-icon-color` | alpha_color | — | Top bar icon color |
+| `header-mobile-microwidgets-typography` | typography | Arial 16 | Mobile header micro-widget font |
+| `header-mobile-microwidgets-font-color` | color | `#000000` | Mobile header micro-widget font color |
+| `header-mobile-microwidgets-custom-icon-size` | slider | `16` | Mobile header icon size (9–120) |
+| `header-mobile-microwidgets-custom-icon-color` | alpha_color | — | Mobile header icon color |
+| `menu-mobile-microwidgets-typography` | typography | Arial 16 | Mobile menu micro-widget font |
+| `menu-mobile-microwidgets-font-color` | color | `#000000` | Mobile menu micro-widget font color |
+| `menu-mobile-microwidgets-custom-icon-size` | slider | `16` | Mobile menu icon size (9–120) |
+| `menu-mobile-microwidgets-custom-icon-color` | alpha_color | — | Mobile menu icon color |
 
 ### Multipurpose Widgets (Address, Email, Phone, Skype, Working Hours)
 

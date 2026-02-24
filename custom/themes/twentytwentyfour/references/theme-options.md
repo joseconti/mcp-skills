@@ -460,3 +460,110 @@ mcm/set-global-styles {
 | Element | Key Styles |
 |---------|-----------|
 | Caption | Color: `contrast-2`, font: `body` family, 0.8rem |
+
+---
+
+## Style Variation — Full Details
+
+### Fossil
+
+**Fonts:** Body=Cardo (serif), Heading=Inter (sans) — swapped from default
+**Font Sizes:** small=1rem, medium=1.2rem, large=1.5–2rem fluid, x-large=2–2.65rem fluid, xx-large=2.65–3.5rem fluid
+**Gradients (12):** Earth tones — E1DFDB, D6D2CE, 958D86, 65574E, 1A1514 (soft + hard variants)
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` outline | padding: calc(0.9rem-2px), border-width: 2px |
+| `core/pullquote` | size: large, fontStyle: normal, weight: normal, line-height: 1.2 |
+| `core/quote` | font-family: heading, size: large, fontStyle: normal. Plain: weight 400 |
+| `core/site-title` | weight: 400 |
+| button element | radius: 100px (pill), bg: contrast-2, text: white, padding: 0.9rem 2rem, font-family: heading, size: small. Hover: bg=contrast |
+| heading element | weight: normal, letter-spacing: 0 |
+
+### Ice
+
+**Fonts:** Body=Jost (sans), Heading=Inter (sans)
+**Font Sizes:** Same as Fossil (1rem, 1.2rem, 2rem, 2.65rem, 3.5rem)
+**Gradients (12):** Cold blues — cbd9e1, EBEBEF, 466577, 37505d, 1C2930 (soft + hard variants)
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` outline | padding: calc(1rem-1px) calc(2.2rem-1px), border-width: 1px |
+| `core/pullquote` | size: large, fontStyle: normal, weight: normal, line-height: 1.2 |
+| `core/quote` | font-family: heading, size: large, fontStyle: normal. Plain: weight 400 |
+| `core/site-title` | weight: 400 |
+| button element | radius: 4px, bg: contrast-2, text: white, padding: 1rem 2.2rem, size: 0.75rem, uppercase, letter-spacing: 0.1rem. Hover: bg=contrast |
+| heading element | weight: normal, letter-spacing: 0 |
+
+### Maelstrom
+
+**Fonts:** Body=Cardo (serif), Heading=Jost (sans)
+**Font Sizes:** Same as Fossil
+**Gradients:** None
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` outline | padding: calc(0.8rem-2px) calc(1.6rem-2px), border-width: 2px |
+| `core/site-title` | font-family: heading, weight: normal |
+| `core/navigation` | size: small, weight: normal |
+| button element | radius: 6px, bg: contrast, text: base-2, padding: 0.8rem/0.98rem 1.6rem, font-family: heading, size: small. Hover: bg=contrast |
+| heading element | font-family: heading, letter-spacing: 0 |
+
+### Mint
+
+**Fonts:** Body=Jost (sans), Heading=Instrument Sans (sans)
+**Gradients:** None
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/navigation` | fontStyle: normal, weight: 400 |
+| `core/pullquote` | font-family: body, size: x-large, fontStyle: normal, weight: 600, line-height: 1.3 |
+| `core/quote` | font-family: body, size: large, fontStyle: normal, weight: 400 |
+| `core/site-title` | font-family: heading |
+| caption element | font-family: body |
+| h1 | size: x-large |
+| h2 | size: 2.1rem |
+| h3 | size: large |
+| h4 | size: 1.6rem |
+| h5 | size: 1.4rem |
+| heading element | font-family: heading, fontStyle: normal, weight: 600 |
+
+### Rust
+
+**Duotone:** `duotone-1` — #A62B0C, #F3F0E7 ("Dark rust to beige")
+**Gradients (4):** gradient-1: transparent rust→beige, gradient-7: hard transparent, gradient-2: solid rust→beige, gradient-8: hard solid
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/calendar` | Custom CSS: th bg=contrast, text=base, border=contrast; td border=contrast |
+| `core/comment-date` | text: contrast, link text: contrast |
+| `core/comment-edit-link` | link text: contrast |
+| `core/comment-reply-link` | link text: contrast |
+| `core/post-date` | text: contrast, link text: contrast |
+| `core/post-terms` | CSS: prefix color=contrast |
+| `core/quote` | bg: base |
+| `core/site-tagline` | text: contrast |
+| button :hover/:focus | bg: contrast, border: contrast |
+| caption element | text: contrast |
+
+### Ember
+
+**Fonts:** Body=Instrument Sans (sans), Heading=Jost (sans)
+**Duotone:** `duotone-2` — #D73301, #F9F8F5 ("Orange and white")
+**Gradients (12):** Warm tones — f6decd, dbab88, A4A4A4, 353535, 111111 (soft + hard variants)
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` outline | padding: calc(0.9rem-2px), border-width: 2px |
+| `core/image` | duotone filter: duotone-2 |
+| `core/pullquote` | size: large, fontStyle: normal, weight: normal, line-height: 1.2 |
+| `core/quote` | font-family: heading, size: large, fontStyle: normal. Plain: weight 400 |
+| `core/site-title` | weight: 400 |
+| `core/navigation` | weight: 400 |
+| button element | radius: 100px (pill), bg: contrast-2, text: base, padding: 0.9rem 2rem, font-family: heading, size: small. Hover: bg=contrast |
+
+### Onyx
+
+**Duotones (5):** All #272727 paired with: #f9f9f9 (white), #5F584F (walnut), #973C20 (cinnamon), #4D5B48 (olive), #4F5959 (steel)
+**Gradients (12):** Dark tones — 5F584F, 6D533C, 973C20, 4D5B48, 4F5959, 909090, 272727 (soft + hard variants)
+**No block/element overrides** — uses default styles with dark palette only

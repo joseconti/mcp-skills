@@ -196,11 +196,36 @@ Supported: `aside`, `audio`, `chat`, `gallery`, `image`, `link`, `quote`, `statu
 
 ---
 
-## Custom Block Styles (from functions.php)
+## Custom Block Styles
 
-| Block | Style Name | Description |
-|-------|-----------|-------------|
-| `core/list` | `checkmark-list` | Checkmark (✓) as list marker |
+### From functions.php
+
+| Block | Style Slug | Label | CSS |
+|-------|-----------|-------|-----|
+| `core/list` | `checkmark-list` | Checkmark | `list-style-type: "\2713"; li { padding-inline-start: 1ch }` |
+
+### From styles/blocks/ (JSON-defined)
+
+| Style Slug | Title | Applies To | Key Styles |
+|------------|-------|-----------|------------|
+| `text-display` | Display | `core/heading`, `core/paragraph` | fontSize: `clamp(2.2rem, 2.2rem + ((1vw - 0.2rem) * 1.333), 3.5rem)`, lineHeight: 1.2 |
+| `text-subtitle` | Subtitle | `core/heading`, `core/paragraph` | fontSize: `clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.392), 1.75rem)`, lineHeight: 1.2 |
+| `text-annotation` | Annotation | `core/heading`, `core/paragraph` | fontSize: small, lineHeight: 1.5, border: 1px solid currentColor, radius: 16px, padding: 0.2rem 0.6rem, width: fit-content, link: no underline |
+| `post-terms-1` | Pill shaped | `core/post-terms` | link border: 0.8px solid accent-6, radius: 20px, padding: 5px 10px, fontWeight: 400, lineHeight: 2.8, no underline, underline on :hover |
+
+### Section Style Variations (from styles/sections/)
+
+Applied to `core/group`, `core/columns`, `core/column` via `.is-style-section-N` class:
+
+| Section | Background | Text | Key Overrides |
+|---------|-----------|------|---------------|
+| `section-1` | accent-5 | contrast | Separator: 25% currentColor. Post-date: 85% currentColor. All post/comment blocks: currentColor. Pullquote/quote: currentColor |
+| `section-2` | accent-2 | base | Similar to section-1 with different color mapping |
+| `section-3` | accent-3 | base | Similar to section-1 with different color mapping |
+| `section-4` | contrast | base | Similar to section-1 with different color mapping |
+| `section-5` | accent-1 | contrast | Similar to section-1 with different color mapping |
+
+Each section overrides: `core/separator`, `core/site-title`, `core/post-author-name`, `core/post-date`, `core/post-terms`, `core/comment-author-name`, `core/comment-date`, `core/comment-edit-link`, `core/comment-reply-link`, `core/pullquote`, `core/quote` — setting text and link colors to `currentColor` for consistency.
 
 ---
 
@@ -421,3 +446,150 @@ All 8 style variations define `styles.variations` with numbered section styles (
 | `core/list` | CSS: `li { margin-top: 0.5rem }` |
 | `core/query-pagination` | Font size: medium, weight: 500 |
 | `core/term-description` | Font size: medium |
+
+---
+
+## Style Variation — Per-Block Overrides
+
+Each variation overrides block-level and element-level styles beyond just the color palette. Below are the **unique block/element changes** per variation (colors/fonts are listed in the Style Variations section above):
+
+### Evening
+- `core/button` outline: padding adjusted (0.6rem top/bottom, 1.6rem left/right)
+- Section-2 button: bg=base, text=contrast
+- Section-4 button: bg=accent-2, text=contrast
+
+### Noon
+**Custom font sizes:** Small 0.9rem, Medium 1–1.2rem fluid, Large 1.6–1.8rem fluid, X-Large 1.8–2.2rem fluid, XX-Large 2–2.8rem fluid
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` | border-color: contrast, shadow: natural, font-family: beiruti |
+| `core/button` outline | shadow: none |
+| `core/list` | line-height: 1.3 |
+| `core/loginout` | font-size: medium |
+| `core/post-terms` | font-weight: 300 |
+| `core/post-title` | text: accent-3, link: currentColor |
+| `core/pullquote` | text: accent-3, font-family: beiruti, weight: 500, line-height: 1 |
+| `core/quote` | font-size: medium |
+| `core/query-pagination` | font-weight: 300 |
+| `core/query-title` | text: accent-3, link: currentColor |
+| `core/site-tagline` | font-size: small |
+| `core/site-title` | font-family: beiruti, weight: 600, letter-spacing: 2.4px, uppercase |
+| heading element | color: accent-3, font-family: beiruti, weight: 500, letter-spacing: -0.02em, line-height: 1.02 |
+| h4 | font-size: large |
+| h5 | font-size: medium, letter-spacing: 0px |
+| h6 | font-size: small |
+
+### Dusk
+**Custom color:** `settings.custom.color.accent-2-opacity-20` = `#650DD433`
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/code` | text: black, bg: accent-5 |
+| `core/paragraph` | link text: accent-2 |
+| `core/post-author-name` | weight: 300, text: accent-2 |
+| `core/post-terms` | weight: 300, text: accent-2 |
+| `core/post-title` | weight: 400, letter-spacing: -0.96px, link: accent-3 |
+| `core/pullquote` | text: black, font-family: vollkorn, size: x-large, weight: 400. Cite: font-family: fira-code, weight: 300 |
+| `core/quote` | text: black, font-family: fira-code, weight: 500, letter-spacing: -0.18px |
+| `core/site-title` | text: accent-3, font-family: vollkorn, size: x-large |
+| button element | font-family: fira-code, size: medium, weight: 400, bg: accent-2, text: base, radius: 4px |
+| heading element | text: accent-3, font-family: vollkorn |
+| h1–h5 | fixed pixel sizes (48, 38, 32, 28, 24px) with letter-spacing |
+| link element | text: accent-3 |
+| post-terms-1 variation | link border: accent-2-opacity-20, radius: 4px |
+
+### Afternoon
+**Custom font sizes:** Small 0.875rem, Medium 1–1.125rem fluid, Large 1.125–1.375rem fluid, X-Large 1.4–1.8rem fluid, XX-Large 2–2.6rem fluid
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` | border-radius: 0px, padding: 1rem 1.6rem |
+| `core/code` | letter-spacing: 0px |
+| `core/heading` | line-height: 1.2 |
+| `core/list` | line-height: 1.3 |
+| `core/loginout` | font-size: medium |
+| `core/post-terms` | font-weight: 400 |
+| `core/pullquote` | font-family: platypi, letter-spacing: -0.01em, line-height: 1.1 |
+| `core/quote` | font-weight: 300 |
+| `core/site-title` | font-family: ysabeau-office, size: large, letter-spacing: 1.44px, uppercase |
+| button element | font-family: ysabeau-office, weight: 600, letter-spacing: 1.44px, uppercase |
+| heading element | font-family: platypi |
+| h5 | font-size: medium |
+| h6 | font-size: small, weight: 400 |
+
+### Twilight
+**Custom font sizes:** Small 0.875rem, Medium 1–1.125rem fluid, Large 1.125–1.375rem fluid, X-Large 1.75–2rem fluid, XX-Large 2.15–2.4rem fluid
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/button` outline | padding: 0.625rem 1.375rem |
+| `core/navigation` | font-size: large, letter-spacing: -0.28px, uppercase |
+| `core/post-author` | font-size: small |
+| `core/post-author-name` | font-size: small |
+| `core/post-terms` | font-weight: 500 |
+| `core/pullquote` | font-family: roboto-slab, size: xx-large, weight: 200 |
+| `core/search` | uppercase |
+| `core/site-tagline` | font-size: large |
+| `core/site-title` | uppercase |
+| button element | padding: 0.625rem 1.375rem, weight: 500, letter-spacing: -0.36px, uppercase |
+| heading element | font-family: roboto-slab, weight: 300, letter-spacing: -0.5px, line-height: 1.2 |
+| Section-5 | Custom CSS for `core/post-comments-form` (textarea/input border-radius) and `core/search` (input border-color) |
+
+### Morning
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/code` | text: contrast, bg: accent-5 |
+| `core/navigation` | font-size: 1.25rem |
+| `core/paragraph` | link: contrast |
+| `core/post-author-name` | link: contrast |
+| `core/post-title` | weight: 900, letter-spacing: -0.96px, link: contrast |
+| `core/pullquote` | text: contrast, size: xx-large. Cite: size: medium |
+| `core/quote` cite | size: medium, color: accent-4 |
+| `core/query-title` | weight: 900 |
+| `core/site-title` | font-family: ysabeau-office, uppercase, letter-spacing: 1.6px |
+| button element | font-family: literata, size: medium, weight: 900, bg: accent-1, text: contrast, radius: 0px |
+| heading element | font-family: literata, weight: 900, line-height: 1.2 |
+| post-terms-1 variation | font-size: medium, link bg: accent-5, border: radius 100px, color accent-5 |
+
+### Sunrise
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/code` | text: accent-2, bg: accent-5 |
+| `core/navigation` | font-size: 1.25rem |
+| `core/post-author-name` | text: contrast |
+| `core/post-terms` | weight: 400, text: contrast |
+| `core/post-title` | weight: 800, letter-spacing: -0.96px, link: accent-2 |
+| `core/pullquote` | text: accent-2, font-family: platypi, size: x-large, weight: 800. Cite: font-family: literata, weight: 400 |
+| `core/quote` | text: accent-2, size: 1.5rem, weight: 600, letter-spacing: -0.24px |
+| `core/site-title` | font-family: platypi, size: 30px, weight: 800, letter-spacing: -0.6px |
+| button element | text: base, bg: accent-2, radius: 0px, font-family: platypi, size: 1.5rem, weight: 800 |
+| heading element | font-family: platypi, weight: 800 |
+| link element | text: contrast |
+| post-terms-1 variation | font-size: 16px, link bg: accent-5, border: radius 100px, color accent-5 |
+
+### Midnight
+**Custom duotone:** `midnight-filter` (`#4433A6` → `#79F3B1`) — applied to avatar, cover, image, post-featured-image, site-logo
+**Custom font sizes:** Small 0.9rem, Medium 0.9–1.2rem fluid, Large 1.2–1.8rem fluid, X-Large 1.8–2.2rem fluid, XX-Large 2–2.8rem fluid
+
+| Block/Element | Override |
+|---------------|----------|
+| `core/avatar` | duotone filter: midnight-filter |
+| `core/button` outline | padding: 1rem all sides |
+| `core/code` | bg: accent-2, text: contrast |
+| `core/cover` | duotone filter: midnight-filter |
+| `core/image` | duotone filter: midnight-filter |
+| `core/post-date` | text: contrast, link: contrast |
+| `core/post-featured-image` | duotone filter: midnight-filter |
+| `core/post-title` | weight: 200 |
+| `core/pullquote` | border: none, font-family: literata, weight: 200 |
+| `core/query-pagination` | weight: 300 |
+| `core/quote` | size: medium, letter-spacing: -0.01em, line-height: 1.5, weight: 300 |
+| `core/search` | border-radius: 0px |
+| `core/site-logo` | duotone filter: midnight-filter |
+| `core/site-title` | font-family: literata, size: x-large, weight: 300, letter-spacing: -0.56px, uppercase |
+| button element | radius: 0px, bg: contrast, text: base, padding: 1rem all, font-family: literata, size: medium, weight: 400, letter-spacing: -0.01em, uppercase |
+| heading element | font-family: literata, weight: 200, letter-spacing: -0.02em, line-height: 1.24 |
+| h6 | weight: 200 |

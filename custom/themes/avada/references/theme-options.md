@@ -42,14 +42,14 @@ Avada uses **three storage mechanisms** for configuration:
 |-----------|------|---------|-------------|
 | `typography_sets` | typography-sets | AWB defaults | Global typography presets |
 | `body_typography` | typography | Font vars | Body text font settings |
-| `h1_typography` | typography | 64px | Heading 1 font settings |
-| `h2_typography` | typography | AWB var | Heading 2 font settings |
-| `h3_typography` | typography | 36px | Heading 3 font settings |
-| `h4_typography` | typography | 24px | Heading 4 font settings |
-| `h5_typography` | typography | 20px | Heading 5 font settings |
-| `h6_typography` | typography | 16px | Heading 6 font settings |
-| `post_title_typography` | typography | 48px | Post title font settings |
-| `post_titles_extras_typography` | typography | 20px | Post subtitle/extras font |
+| `h1_typography` | typography | 64px | Heading 1 font settings (includes margin-top/margin-bottom: default 0.67em/0.67em) |
+| `h2_typography` | typography | AWB var | Heading 2 font settings (includes margin-top/margin-bottom: default 0em/1.1em) |
+| `h3_typography` | typography | 36px | Heading 3 font settings (includes margin-top/margin-bottom: default 1em/1em) |
+| `h4_typography` | typography | 24px | Heading 4 font settings (includes margin-top/margin-bottom: default 1.33em/1.33em) |
+| `h5_typography` | typography | 20px | Heading 5 font settings (includes margin-top/margin-bottom: default 1.67em/1.67em) |
+| `h6_typography` | typography | 16px | Heading 6 font settings (includes margin-top/margin-bottom: default 2.33em/2.33em) |
+| `post_title_typography` | typography | 48px | Post title font settings (no margin-top/margin-bottom) |
+| `post_titles_extras_typography` | typography | 20px | Post subtitle/extras font (no margin-top/margin-bottom) |
 | `link_color` | color-alpha | `var(--awb-color8)` | Link color |
 | `link_hover_color` | color-alpha | `var(--awb-color5)` | Link hover color |
 | `link_decoration` | switch | `0` | Enable link text decoration |
@@ -81,6 +81,19 @@ Typography fields MUST be arrays with ALL properties:
 }
 ```
 
+**H1-H6 heading typography** also supports `margin-top` and `margin-bottom` within the same array. Post Title options do NOT have margin fields.
+
+### Heading Margin Defaults
+
+| Heading | margin-top | margin-bottom |
+|---------|-----------|--------------|
+| H1 | `0.67em` | `0.67em` |
+| H2 | `0em` | `1.1em` |
+| H3 | `1em` | `1em` |
+| H4 | `1.33em` | `1.33em` |
+| H5 | `1.67em` | `1.67em` |
+| H6 | `2.33em` | `2.33em` |
+
 ---
 
 ## 3. Header
@@ -106,6 +119,20 @@ Typography fields MUST be arrays with ALL properties:
 | `header_email` | text | empty | Contact email in header |
 | `header_tagline` | textarea | empty | Header tagline text |
 | `header_banner_code` | code | empty | Header banner HTML code |
+
+### Header Conditional Notes
+
+**V4 Layout + Side Header Only:**
+- `header_v4_content` only shows when `header_position != 'top'` AND `header_layout == 'v4'`
+- `header_tagline` requires `header_layout == 'v4'` AND `header_v4_content` contains `'tagline'` AND `header_position != 'top'`
+- `header_banner_code` requires `header_layout == 'v4'` AND `header_v4_content == 'banner'` AND `header_position != 'top'`
+
+**Side Header Only** (`header_position` = left or right):
+- `header_left_content` / `header_right_content` — only available with side headers (v2-v5 layouts)
+
+**Top Header Only** (`header_position` = top):
+- `slider_position` — slider above/below header (only for top position)
+- `header_bg_parallax` — parallax bg effect (only for top position)
 
 ### Sticky Header
 
@@ -1348,38 +1375,73 @@ Requires the PWA plugin.
 
 ## 33. Page-Level Overrides (Post Meta)
 
-Avada allows per-page option overrides using post meta with `pyre_` prefix. Set via `mcm/update-content`:
+Avada allows per-page option overrides using post meta with `pyre_` prefix. The actual DB meta key is `_fusion_builder_[field_id]`, but the admin field uses `pyre_[field_id]` as HTML ID. Set via `mcm/update-content`:
 
 ```json
 mcm/update-content {"id": <page_id>, "meta": {"pyre_header_bg_color": "#FF0000"}}
 ```
 
-| Meta Key | Description |
-|----------|-------------|
-| `pyre_header_bg_color` | Page header background color |
-| `pyre_slider_type` | Page slider type (no, flex, flex2, rev, elastic, layer) |
-| `pyre_display_header` | Show/hide header (yes/no) |
-| `pyre_display_footer` | Show/hide footer (yes/no) |
-| `pyre_page_bg_color` | Page background color |
-| `pyre_sidebar_position` | Sidebar position (left/right/default) |
-| `pyre_page_title_bar` | Page title bar (bar_and_content/content_only/hide/default) |
-| `pyre_page_title_text` | Show page title text (yes/no/default) |
-| `pyre_page_title_bar_bs` | Below title bar content (default/breadcrumbs/search_box/none) |
-| `pyre_page_title` | Custom page title text |
-| `pyre_page_title_custom_subheader` | Custom page subtitle |
-| `pyre_page_title_bg_color` | Page title bar background color |
-| `pyre_page_title_text_color` | Page title text color |
-| `pyre_page_title_height` | Page title bar height |
-| `pyre_page_title_bg` | Page title background image URL |
-| `pyre_page_title_bg_full` | Full background image (yes/no) |
-| `pyre_page_title_bg_parallax` | Parallax background (yes/no) |
-| `pyre_page_title_breadcrumbs_search_bar` | Breadcrumbs/search bar (default/breadcrumbs/search_box/none) |
-| `pyre_content_bg_color` | Content background color |
-| `pyre_main_top_padding` | Main content top padding |
-| `pyre_main_bottom_padding` | Main content bottom padding |
-| `pyre_sidebar_bg_color` | Sidebar background color |
-| `pyre_page_bg_layout` | Page layout (wide/boxed/default) |
-| `pyre_page_bg` | Page background image |
+### Page Options
+
+| Meta Key | Type | Description |
+|----------|------|-------------|
+| `pyre_page_bg_layout` | radio-buttonset | Page layout (wide/boxed/default) |
+| `pyre_page_bg_color` | color-alpha | Page background color |
+| `pyre_page_bg` | media | Page background image |
+| `pyre_page_bg_full` | radio-buttonset | Full background image (yes/no) |
+| `pyre_page_bg_repeat` | select | Background repeat (repeat/repeat-x/repeat-y/no-repeat) |
+| `pyre_content_bg_color` | color-alpha | Content background color |
+| `pyre_main_top_padding` | dimension | Main content top padding |
+| `pyre_main_bottom_padding` | dimension | Main content bottom padding |
+| `pyre_sidebar_position` | radio-buttonset | Sidebar position (left/right/default) |
+| `pyre_sidebar_bg_color` | color-alpha | Sidebar background color |
+| `pyre_container_hundred_percent_animation` | select | 100% width scroll animation |
+| `pyre_container_hundred_percent_scroll_sensitivity` | slider | Scroll sensitivity |
+| `pyre_container_hundred_percent_animation_speed` | slider | Animation speed |
+
+### Header Page Options
+
+| Meta Key | Type | Description |
+|----------|------|-------------|
+| `pyre_display_header` | radio-buttonset | Show/hide header (yes/no) |
+| `pyre_header_100_width` | radio-buttonset | 100% width header (yes/no) |
+| `pyre_header_bg_color` | color-alpha | Page header background color |
+| `pyre_mobile_header_bg_color` | color-alpha | Mobile header background color |
+| `pyre_header_bg_image` | media | Header background image |
+| `pyre_header_bg_full` | radio-buttonset | Full header background (yes/no) |
+| `pyre_header_bg_repeat` | select | Header bg repeat |
+| `pyre_displayed_menu` | select | Override menu for this page |
+
+### Page Title Bar Options
+
+| Meta Key | Type | Description |
+|----------|------|-------------|
+| `pyre_page_title_bar` | radio-buttonset | Page title bar (bar_and_content/content_only/hide/default) |
+| `pyre_page_title_text` | radio-buttonset | Show page title text (yes/no/default) |
+| `pyre_page_title_bar_bs` | radio-buttonset | Below title bar content (default/breadcrumbs/search_box/none) |
+| `pyre_page_title` | text | Custom page title text |
+| `pyre_page_title_custom_subheader` | textarea | Custom page subtitle |
+| `pyre_page_title_bg_color` | color-alpha | Page title bar background color |
+| `pyre_page_title_text_color` | color-alpha | Page title text color |
+| `pyre_page_title_height` | dimension | Page title bar height |
+| `pyre_page_title_bg` | media | Page title background image URL |
+| `pyre_page_title_bg_full` | radio-buttonset | Full background image (yes/no) |
+| `pyre_page_title_bg_parallax` | radio-buttonset | Parallax background (yes/no) |
+| `pyre_page_title_breadcrumbs_search_bar` | radio-buttonset | Breadcrumbs/search bar (default/breadcrumbs/search_box/none) |
+
+### Slider Page Options
+
+| Meta Key | Type | Description |
+|----------|------|-------------|
+| `pyre_slider_type` | select | Page slider type (no, flex, flex2, rev, elastic, layer) |
+| `pyre_slider_position` | radio-buttonset | Slider position (above/below header) |
+
+### Footer Page Options
+
+| Meta Key | Type | Description |
+|----------|------|-------------|
+| `pyre_display_footer` | radio-buttonset | Show/hide footer (yes/no) |
+| `pyre_display_copyright` | radio-buttonset | Show/hide copyright bar (yes/no) |
 
 ---
 
@@ -1393,8 +1455,8 @@ Avada Builder element styling options have been moved to the Avada Builder Eleme
 
 | Category | Sections | Approx. Options |
 |----------|----------|-----------------|
-| Colors & Typography | 2 | ~26 |
-| Header & Navigation | 4 | ~105 |
+| Colors & Typography | 2 | ~38 |
+| Header & Navigation | 4 | ~110 |
 | Page Title & Breadcrumbs | 2 | ~32 |
 | Footer & Copyright | 3 | ~30 |
 | Sliding Bar & Sidebars | 2 | ~60 |
@@ -1415,5 +1477,5 @@ Avada Builder element styling options have been moved to the Avada Builder Eleme
 | Maintenance | 1 | ~7 |
 | Advanced / Features | 1 | ~30 |
 | Custom CSS & Auth | 2 | ~8 |
-| Page-Level Overrides | 1 | ~25 |
-| **TOTAL** | **33** | **~600+** |
+| Page-Level Overrides | 1 | ~40 |
+| **TOTAL** | **33** | **~630+** |
