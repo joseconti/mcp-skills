@@ -136,9 +136,9 @@ This phase is MANDATORY regardless of whether updates succeeded or failed.
 1. **If browser is available:** Navigate to the site's homepage. If you see the maintenance message, the file needs to be removed.
 
 2. **Always verify programmatically:**
-   - Use `mcm/read-file` to check if a `.maintenance` file exists in the WordPress root directory
-   - If it exists, use `mcm/delete-file` to remove it
-   - If `mcm/delete-file` is not available, use `mcm/write-file` to overwrite it with empty content, then report to the user that they should manually delete it via FTP/file manager
+   - Run `mcm/delete-maintenance` — this ability checks if the `.maintenance` file exists and deletes it
+   - If the file was found and deleted, inform the user
+   - If the file was not found, no action needed
 
 3. **After removal:** Visit the homepage again to confirm the site is accessible.
 

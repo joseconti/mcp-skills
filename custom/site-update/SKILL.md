@@ -72,7 +72,7 @@ WordPress creates a `.maintenance` file in the site root during updates. If an u
 
 - **After ALL updates complete** (success or failure), always verify that the site is not stuck in maintenance mode.
 - Check by visiting the site URL. If it shows "Briefly unavailable for scheduled maintenance", the `.maintenance` file must be removed.
-- Use `mcm/write-file` to check for and delete the `.maintenance` file in the WordPress root if it exists.
+- Use `mcm/delete-maintenance` to check and remove the `.maintenance` file from the WordPress root.
 - This check is **mandatory** — it must happen even if all updates succeeded.
 
 ### Never Update MCP Content Manager
