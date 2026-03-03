@@ -39,7 +39,7 @@ This is the most important pre-flight step. You need to verify that key pages lo
 **If no URLs are configured**, auto-detect 2-3 representative pages:
 
 1. **Homepage**: The site's main URL (always check this)
-2. **A recent post/page**: Use `mcm/list-content` with `post_type: post, per_page: 1, orderby: date` to find the most recent published post
+2. **A recent post/page**: Use `mcm/search-content` with `post_type: post, per_page: 1, orderby: date` to find the most recent published post
 3. **A key functional page** (choose one based on what's installed):
    - If WooCommerce is active → visit the shop page
    - If there's a contact form plugin → visit the contact page

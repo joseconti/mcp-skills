@@ -5,7 +5,9 @@ This directory contains custom skills that are **not** synced from the upstream 
 ## Active skills
 
 - **woocommerce/** — WooCommerce development patterns, hooks, HPOS, and best practices
-- **site-creation/** — Complete guide for creating a WordPress site from scratch
+- **site-creation/** — Complete guide for creating a WordPress site from scratch (14 phases)
+- **site-update/** — Safe WordPress update workflow: pre-flight checks, snapshots, anti-loop protection, post-flight verification, rollback, and mandatory maintenance mode cleanup
+- **site-security/** — WordPress security hardening: 23 measures (SAFE/CAUTION/CRITICAL), wp-config.php constants, .htaccess rules, HTTP headers, login protection, and security scoring
 - **themes/** — Theme configuration skills (see [themes/INDEX.md](themes/INDEX.md)):
   - **themes/wordpress-theme-customizer/** — General-purpose theme customizer (orchestrator for any theme — auto-detects type, checks for specific skill, offers standard or full scan)
   - **themes/avada/** — Avada configuration (classic theme — fusion_options: colors, header, footer, layout, blog, WooCommerce) — via `mcm/get-theme-options` / `mcm/set-theme-options`
@@ -15,11 +17,6 @@ This directory contains custom skills that are **not** synced from the upstream 
   - **themes/twentytwentythree/** — Twenty Twenty-Three configuration (block/FSE — Global Styles: colors, fonts, style variations, templates) — via `mcm/get-global-styles` / `mcm/set-global-styles`
 
 All theme configurations are done through **MCP Content Manager abilities** (no WP-CLI required).
-
-## Planned skills
-
-- **wordpress-security/** — WordPress security guidelines, OWASP patterns, and hardening
-- **wordpress-general/** — General WordPress coding guidelines and conventions
 
 ## Structure
 
